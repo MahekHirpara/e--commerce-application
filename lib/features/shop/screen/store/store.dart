@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import '../../../../common/widget/custom_shap/container/serach_container.dart';
 import '../../../../common/widget/brand_cart/brand_card.dart';
 import '../../../../utils/constant/color.dart';
+import '../brand/all_brand.dart';
+import 'package:get/get.dart';
 
 class Store extends StatelessWidget {
   const Store({super.key});
@@ -63,7 +65,9 @@ class Store extends StatelessWidget {
                         ESectionHeading(
                           text: 'Featured Brand',
                           showActionbutton: true,
-                          onPressed: () {},
+                          onPressed: () {
+Get.to(()=>AllBrandScreen());
+                          },
                         ),
                         const SizedBox(
                           height: ESize.spaceBtwSection / 1.5,

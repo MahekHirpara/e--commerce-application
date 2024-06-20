@@ -1,10 +1,12 @@
 
+import 'package:e_commerce_app/features/shop/screen/all_product/all_product.dart';
 import 'package:e_commerce_app/features/shop/screen/home/widgets/home_appbar.dart';
 import 'package:e_commerce_app/features/shop/screen/home/widgets/home_categories.dart';
 import 'package:e_commerce_app/features/shop/screen/home/widgets/promp_slider.dart';
 import 'package:e_commerce_app/utils/constant/image_string.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../common/widget/custom_shap/container/primary_header_container.dart';
 import '../../../../common/widget/custom_shap/container/serach_container.dart';
 import '../../../../common/widget/layout/grid_layout.dart';
@@ -68,7 +70,9 @@ class HomeScreen extends StatelessWidget {
                   const PromoSlider(banner: [EImages.promo1,EImages.promo2,EImages.promo3,EImages.promo4,],),
                   const SizedBox(height: ESize.spaceBtwSection,),
                   //heading
-                  ESectionHeading(text:"Popular product",onPressed:(){},showActionbutton: false,),
+                  ESectionHeading(text:"Popular product",onPressed:(){
+                    Get.to(()=>const AllProductScreen());
+                  },showActionbutton: true,),
                   const SizedBox(height: ESize.spaceBtwItems,),
                   //add to cart button
                   EGrideLayout(

@@ -13,22 +13,22 @@ class SubCategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: EAppBar(
+      appBar: const EAppBar(
         title: Text('Sports shirs'),
         showBackArrow: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(ESize.defaultSpace),
+          padding: const EdgeInsets.all(ESize.defaultSpace),
           child: Column(
             children: [
               //banner
-              ERoundedImage(
+              const ERoundedImage(
                 imageurl: EImages.promo3,
                 width: double.infinity,
                 applyimageRadius: true,
               ),
-              SizedBox(
+              const SizedBox(
                 height: ESize.spaceBtwSection,
               ),
 
@@ -40,7 +40,7 @@ class SubCategoriesScreen extends StatelessWidget {
                     showActionbutton: true,
                     onPressed: () {},
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: ESize.spaceBtwSection,
                   ),
                   SizedBox(
@@ -50,7 +50,7 @@ class SubCategoriesScreen extends StatelessWidget {
                         itemBuilder: (_, index) {
                           return EProductCardHorizontal();
                         },
-                        separatorBuilder: (_, __) => SizedBox(
+                        separatorBuilder: (_, __) => const SizedBox(
                               width: ESize.spaceBtwItems,
                             ),
                         itemCount: 4),
