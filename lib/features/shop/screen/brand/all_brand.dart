@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 
 import '../../../../common/widget/appbar/appbar.dart';
 import '../../../../common/widget/brand_cart/brand_card.dart';
-import '../../../../common/widget/product/sortable/sortable_product.dart';
+
 
 class AllBrandScreen extends StatelessWidget {
   const AllBrandScreen({super.key});
