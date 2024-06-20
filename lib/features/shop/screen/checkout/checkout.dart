@@ -3,11 +3,16 @@ import 'package:e_commerce_app/common/widget/custom_shap/container/circular_cont
 import 'package:e_commerce_app/features/shop/screen/cart/widgets/cart_item.dart';
 import 'package:e_commerce_app/features/shop/screen/checkout/widget/billin_payment_section.dart';
 import 'package:e_commerce_app/features/shop/screen/checkout/widget/billing_address_section.dart';
+import 'package:e_commerce_app/features/shop/screen/checkout/widget/billing_amount_section.dart';
+import 'package:e_commerce_app/utils/constant/image_string.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:e_commerce_app/utils/helper/helper_function.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../common/widget/product/cart/copuen_widget.dart';
+import '../../../../common/widget_login_sing_up/success.dart';
+import '../../../../navigation_menu.dart';
 import '../../../../utils/constant/color.dart';
 
 class CheckoutScreen extends StatelessWidget {
@@ -42,7 +47,7 @@ class CheckoutScreen extends StatelessWidget {
                 child: const Column(
                   children: [
                     //pricing
-                    EBillingPaymentSection(),
+                    EBillingAmountSection(),
                     SizedBox(height: ESize.spaceBtwItems,),
 
                     //Divider
@@ -50,15 +55,28 @@ class CheckoutScreen extends StatelessWidget {
                     SizedBox(height: ESize.spaceBtwItems,),
 
                     //Payment Methods
-                    EBillingAddressSection(),
+                    EBillingPaymentSection(),
                     SizedBox(height: ESize.spaceBtwItems,),
+
                     //Address
+                    EBilingAddressSection(),
+                    SizedBox(height: ESize.spaceBtwItems,),
                   ],
                 ),
               )
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(ESize.defaultSpace),
+        child: ElevatedButton(onPressed: (){
+          Get.to(() =>  SuccessScreen(
+            image: EImages.payment_success, title: 'Payment Successful', subTitle: 'Your Item will be shipped soon!', onpressed: () {
+              Get.offAll(() =>const NavigationMenu());
+          },
+          ));
+        },child: const Text('Checkout \$25'),),
       ),
     );
   }

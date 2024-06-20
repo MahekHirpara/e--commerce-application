@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import '../../../../utils/constant/color.dart';
 import '../../../../utils/constant/size.dart';
 import '../../icons/ECircleIcon.dart';
+import '../../text/brand_title_with_verify_icon.dart';
 import '../../text/product_title_text.dart';
 import '../product_price.dart';
 
@@ -45,6 +46,7 @@ class GridVertical extends StatelessWidget {
                       applyimageRadius: true,
                       fit: BoxFit.cover,
                     ),
+                    //Sale Tag
                     Positioned(
                       top: 12,
                       child: ECircularContainer(
@@ -85,24 +87,7 @@ class GridVertical extends StatelessWidget {
                     const SizedBox(
                       height: ESize.spaceBtwItems / 2,
                     ),
-
-                    Row(
-                      children: [
-                        Text(
-                          'Nike',
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: Theme.of(context).textTheme.labelMedium,
-                        ),
-                        const SizedBox(width: ESize.xs),
-                        const Icon(
-                          Iconsax.verify5,
-                          color: Colors.blue,
-                          size: ESize.iconsXs,
-                        ),
-                      ],
-                    ),
-
+                    brantitle_text_with_verifyicon(title: 'Nike'),
 
                   ],
                 ),
@@ -116,6 +101,7 @@ class GridVertical extends StatelessWidget {
                   padding: EdgeInsets.only(left: ESize.sm),
                   child: EProductPrice(price: '35.5',isLarge: true,),
                 ),
+
                 Container(
                   decoration: BoxDecoration(
                     color: dark ? EColors.primary : EColors.black,

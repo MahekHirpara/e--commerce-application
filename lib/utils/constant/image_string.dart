@@ -8,7 +8,8 @@ class EImages{
   static const String google = "assets/logos/google.png";
   static const String facebook = "assets/logos/facebook.png";
   static const String nike = "assets/logos/nike.png";
-  static const String paypal = "assets/logos/paypal.webp";
+  static const String paypal = "assets/logos/paypal.png";
+  static const String payment_success = "assets/logos/payment-success.png";
 
   //onboarding
   static const String onBoardingImage1 = "assets/images/on_bording_image/delivery_boy.gif";

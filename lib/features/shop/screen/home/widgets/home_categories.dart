@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../../common/widget/image_text/image_text.dart';
 import '../../../../../utils/constant/image_string.dart';
+import '../../sub-categories/sub_categories.dart';
 
 class HomeCategories extends StatelessWidget {
   const HomeCategories({
@@ -20,7 +22,9 @@ class HomeCategories extends StatelessWidget {
             return EverticalIconText(
               images: EImages.cosmatic,
               title: 'cosmatic',
-              onTap: (){},
+              onTap: (){
+                Get.to(()=>SubCategoriesScreen());
+              },
 
             );
           }),
