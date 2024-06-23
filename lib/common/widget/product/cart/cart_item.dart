@@ -35,7 +35,7 @@ class ECartItem extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const brantitle_text_with_verifyicon(title: 'Zara'),
+              const BrandTExtWithVerifyIcon(title: 'Zara'),
               const Flexible(
                   child: EProductTitleText(
                 title: 'Black ZARA Dress',

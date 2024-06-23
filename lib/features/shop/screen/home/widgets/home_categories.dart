@@ -23,7 +23,7 @@ class HomeCategories extends StatelessWidget {
               images: EImages.cosmatic,
               title: 'cosmatic',
               onTap: (){
-                Get.to(()=>SubCategoriesScreen());
+                Get.to(()=>const SubCategoriesScreen());
               },
 
             );

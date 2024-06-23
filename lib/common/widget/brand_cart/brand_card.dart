@@ -47,7 +47,7 @@ class EBrandcard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const brantitle_text_with_verifyicon(title: 'Nike', brandTextSize: TextSizes.large,),
+                  const BrandTExtWithVerifyIcon(title: 'Nike', brandTextSize: TextSizes.large,),
                   Text('256 product with Sdfvbgf', overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.labelMedium,),
                 ],
               ),

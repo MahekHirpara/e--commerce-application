@@ -19,7 +19,7 @@ class EBillingAmountSection extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: ESize.spaceBtwItems/2,),
+        const SizedBox(height: ESize.spaceBtwItems/2,),
         //Shipping fee
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,7 +32,7 @@ class EBillingAmountSection extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: ESize.spaceBtwItems/2,),
+        const SizedBox(height: ESize.spaceBtwItems/2,),
         //Tax fee
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,7 +45,7 @@ class EBillingAmountSection extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: ESize.spaceBtwItems/2,),
+        const SizedBox(height: ESize.spaceBtwItems/2,),
         //order total
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,7 +58,7 @@ class EBillingAmountSection extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: ESize.spaceBtwItems/2,),
+        const SizedBox(height: ESize.spaceBtwItems/2,),
       ],
     );
   }

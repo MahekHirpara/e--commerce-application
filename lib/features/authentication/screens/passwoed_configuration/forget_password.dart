@@ -1,6 +1,7 @@
-import 'package:e_commerce_app/features/authentication/screens/passwoed_configuration/reset_password.dart';
+import 'package:e_commerce_app/features/authentication/conroller/forget_controller/forget_password_controller.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:e_commerce_app/utils/constant/text.dart';
+import 'package:e_commerce_app/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ForgetPasswordController());
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -23,10 +25,15 @@ class ForgetPassword extends StatelessWidget {
             Text(EText.forgetPasswordSubTitle,style: Theme.of(context).textTheme.labelMedium,),
             const SizedBox(height: ESize.spaceBtwSection,),
           //Text field
-            TextFormField(
-              decoration:const InputDecoration(
-                labelText: EText.email,
-                prefixIcon: Icon(Iconsax.direct_right),
+            Form(
+              key: controller.forgetPasswordFormKey,
+              child: TextFormField(
+                controller: controller.email,
+                decoration:const InputDecoration(
+                  labelText: EText.email,
+                  prefixIcon: Icon(Iconsax.direct_right),
+                ),
+                validator: (value) => EValidator.emailValidation(value!),
               ),
             ),
             const SizedBox(height: ESize.spaceBtwSection,),
@@ -36,7 +43,7 @@ class ForgetPassword extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.to(()=>const ResetPassword());
+                 controller.sendPasswordResendEmail();
                 },
                 child:const Text('Submit'),
               ),

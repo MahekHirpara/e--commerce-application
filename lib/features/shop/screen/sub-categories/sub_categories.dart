@@ -48,7 +48,7 @@ class SubCategoriesScreen extends StatelessWidget {
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                         itemBuilder: (_, index) {
-                          return EProductCardHorizontal();
+                          return const EProductCardHorizontal();
                         },
                         separatorBuilder: (_, __) => const SizedBox(
                               width: ESize.spaceBtwItems,

@@ -17,7 +17,7 @@ class FavouriteScreen extends StatelessWidget {
       appBar: EAppBar(
         title: Text('WishList' ,style: Theme.of(context).textTheme.headlineMedium,),
         actions: [
-          ECircaleButton(icon: Iconsax.add, onPressed: () => Get.to(const HomeScreen()),)
+          ECircleButton(icon: Iconsax.add, onPressed: () => Get.to(const HomeScreen()),)
         ],
       ),
       body: SingleChildScrollView(

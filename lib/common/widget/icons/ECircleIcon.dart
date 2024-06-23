@@ -3,8 +3,8 @@ import 'package:e_commerce_app/utils/helper/helper_function.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/constant/color.dart';
 
-class ECircaleButton extends StatelessWidget {
-  const ECircaleButton({
+class ECircleButton extends StatelessWidget {
+  const ECircleButton({
     super.key,
     this.width,
     this.height,
@@ -29,9 +29,9 @@ class ECircaleButton extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
-        color: backgroundColor != null ? backgroundColor : dark
+        color: backgroundColor ?? (dark
             ? EColors.black.withOpacity(0.9)
-            : EColors.white.withOpacity(0.9),
+            : EColors.white.withOpacity(0.9)),
       ),
       child: IconButton(
         icon: Icon(icon,color: color,size: size,),

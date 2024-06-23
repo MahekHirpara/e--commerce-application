@@ -1,7 +1,6 @@
 import 'package:e_commerce_app/common/widget/custom_shap/container/circular_container.dart';
 import 'package:e_commerce_app/common/widget/product/product_title_text.dart';
 import 'package:e_commerce_app/common/widget/text/brand_title_with_verify_icon.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -9,7 +8,6 @@ import '../../../../utils/constant/color.dart';
 import '../../../../utils/constant/image_string.dart';
 import '../../../../utils/constant/size.dart';
 import '../../../../utils/helper/helper_function.dart';
-import '../../../style/shadow.dart';
 import '../../icons/ECircleIcon.dart';
 import '../../image/rounded_image.dart';
 import '../product_price.dart';
@@ -69,7 +67,7 @@ class EProductCardHorizontal extends StatelessWidget {
                 const Positioned(
                   top: 0,
                   right: 0,
-                  child: ECircaleButton(
+                  child: ECircleButton(
                     icon: Iconsax.heart5,
                     color: Colors.red,
                   ),
@@ -86,7 +84,7 @@ class EProductCardHorizontal extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       EProductTitleText(
@@ -96,14 +94,14 @@ class EProductCardHorizontal extends StatelessWidget {
                       SizedBox(
                         height: ESize.spaceBtwItems / 2,
                       ),
-                      brantitle_text_with_verifyicon(title: 'Nike'),
+                      BrandTExtWithVerifyIcon(title: 'Nike'),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Flexible(
+                      const Flexible(
                           child: EProductPrice(
                         price: '35.5-256678943',
                         isLarge: true,

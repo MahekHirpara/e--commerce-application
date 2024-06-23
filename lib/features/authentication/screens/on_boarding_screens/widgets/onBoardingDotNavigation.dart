@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/features/authentication/conroller,onbording/controller_onbording.dart';
+
 import 'package:e_commerce_app/utils/helper/helper_function.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../../../utils/constant/color.dart';
 import '../../../../../utils/constant/size.dart';
 import '../../../../../utils/device/devise_utility.dart';
+import '../../../conroller/controller_onbording.dart';
 
 
 class OnBoardingDotNavigation extends StatelessWidget {

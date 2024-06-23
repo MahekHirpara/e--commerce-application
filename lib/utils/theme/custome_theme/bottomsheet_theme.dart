@@ -10,7 +10,7 @@ class EBottomSheetTheme{
     constraints: const BoxConstraints(minWidth: double.infinity),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
   );
-  static BottomSheetThemeData DarkBottomsheetTheme = BottomSheetThemeData(
+  static BottomSheetThemeData darkBottomsheetTheme = BottomSheetThemeData(
     showDragHandle: true,
     backgroundColor: Colors.black,
     modalBackgroundColor: Colors.black,

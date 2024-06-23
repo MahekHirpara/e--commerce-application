@@ -1,8 +1,9 @@
-import 'package:e_commerce_app/features/authentication/conroller,onbording/controller_onbording.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../../../../utils/constant/size.dart';
 import '../../../../../utils/device/devise_utility.dart';
+import '../../../conroller/controller_onbording.dart';
 
 
 class OnBoardingSkip extends StatelessWidget {

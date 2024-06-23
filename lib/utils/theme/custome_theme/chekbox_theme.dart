@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class ECheckBoxTheme{
   ECheckBoxTheme._();
 
-  static CheckboxThemeData LightBottomsheetTheme = CheckboxThemeData(
+  static CheckboxThemeData lightBottomsheetTheme = CheckboxThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
     checkColor: MaterialStateProperty.resolveWith((states) {
       if(states.contains(MaterialState.selected)){
@@ -22,7 +22,7 @@ class ECheckBoxTheme{
       }
     }),
   );
-  static CheckboxThemeData DarkBottomsheetTheme = CheckboxThemeData(
+  static CheckboxThemeData darkBottomsheetTheme = CheckboxThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       checkColor: MaterialStateProperty.resolveWith((states) {
         if(states.contains(MaterialState.selected)){

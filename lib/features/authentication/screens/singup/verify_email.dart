@@ -1,36 +1,38 @@
-import 'package:e_commerce_app/common/widget_login_sing_up/success.dart';
-import 'package:e_commerce_app/features/authentication/screens/login/login.dart';
+
+import 'package:e_commerce_app/data/repositories.authentication/authentication_repo.dart';
 import 'package:e_commerce_app/utils/constant/image_string.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:e_commerce_app/utils/constant/text.dart';
 import 'package:e_commerce_app/utils/helper/helper_function.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
 
+import '../../conroller/singup_controller/verify_email_controller.dart';
+class VerifyEmailScreen extends StatelessWidget {
+  const VerifyEmailScreen({super.key, required this.email});
+final String? email;
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailController());
     return  Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
-          IconButton(onPressed: ()=> Get.offAll(()=>LOginScreen()), icon: const Icon(CupertinoIcons.clear),),
+          IconButton(onPressed: ()=> AuthenticationRepo.instance.logout(), icon: const Icon(CupertinoIcons.clear),),
         ],
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(ESize.defaultSpace),
+          padding: const EdgeInsets.all(ESize.defaultSpace),
           child: Column(
             children: [
             //image
-              Image(image:AssetImage(EImages.EmailVerify1), width: EHelperFunction.screenWidth() * 0.6,),
+              Image(image:const AssetImage(EImages.emailVerify1), width: EHelperFunction.screenWidth() * 0.6,),
               const SizedBox(height: ESize.spaceBtwItems,),
               Text(EText.confirmEmail,style: Theme.of(context).textTheme.headlineMedium,textAlign: TextAlign.center,),
               const SizedBox(height: ESize.spaceBtwItems,),
-              Text('mahekhirpara63@gmail.com',style: Theme.of(context).textTheme.labelLarge,textAlign: TextAlign.center,),
+              Text(email ?? '',style: Theme.of(context).textTheme.labelLarge,textAlign: TextAlign.center,),
               const SizedBox(height: ESize.spaceBtwItems,),
               Text(EText.confirmEmailSubTitle,style: Theme.of(context).textTheme.labelMedium,textAlign: TextAlign.center,),
               const SizedBox(height: ESize.spaceBtwSection,),
@@ -38,7 +40,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.to(()=> SuccessScreen(image: EImages.EmailSuccess, title: EText.yourAccountCreatedTitle, subTitle: EText.yourAccountCreatedSubTitle, onpressed: ()=>Get.to(() => LOginScreen())));
+                    controller.checkEmailVerificationStatus();
                   },
                   child: const Text('Continue'),
                 ),
@@ -48,7 +50,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () {
-
+controller.sendEmailVerification();
                   },
                   child: const Text(EText.resendEmail),
                 ),

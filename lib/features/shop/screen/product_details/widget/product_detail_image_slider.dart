@@ -66,7 +66,7 @@ class EProductImageSlider extends StatelessWidget {
             // title: Text('product details') ,
             showBackArrow: true,
             actions: [
-              ECircaleButton(
+              ECircleButton(
                 icon: Iconsax.heart5,
                 color: Colors.red,
               ),

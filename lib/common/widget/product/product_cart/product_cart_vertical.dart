@@ -67,7 +67,7 @@ class GridVertical extends StatelessWidget {
                     const Positioned(
                       top: 0,
                       right: 0,
-                      child: ECircaleButton(
+                      child: ECircleButton(
                         icon: Iconsax.heart5,
                         color: Colors.red,
                       ),
@@ -87,7 +87,7 @@ class GridVertical extends StatelessWidget {
                     const SizedBox(
                       height: ESize.spaceBtwItems / 2,
                     ),
-                    brantitle_text_with_verifyicon(title: 'Nike'),
+                    BrandTExtWithVerifyIcon(title: 'Nike'),
 
                   ],
                 ),

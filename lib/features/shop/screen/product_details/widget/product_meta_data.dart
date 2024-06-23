@@ -72,7 +72,7 @@ class EProductMEtaData extends StatelessWidget {
               overlayColor: dark ? EColors.white : EColors.black,
             ),
             const SizedBox(height: ESize.spaceBtwItems/1.5,),
-            const brantitle_text_with_verifyicon(title: "ZARA",brandTextSize: TextSizes.medium,),
+            const BrandTExtWithVerifyIcon(title: "ZARA",brandTextSize: TextSizes.medium,),
           ],
         ),
       ],

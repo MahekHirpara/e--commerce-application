@@ -1,6 +1,12 @@
 class EValidator{
+  static  String? validationEmptyText(String? fieldName,String value){
+    if(value.isEmpty || value == null){
 
-  String? passwordValidation(String passowrd){
+      return '$fieldName is required';
+    }
+    return null;
+  }
+  static String? passwordValidation(String passowrd){
     if(passowrd.isEmpty || passowrd == null){
 
       return 'Password is required';
@@ -13,8 +19,8 @@ class EValidator{
     }
     return null;
   }
-  String? emailValidation(String email){
-    final emailRegEx = RegExp(r'^[\w-\.]+@([\w-]\.)+[\w-]{2,4}$');
+  static String? emailValidation(String email){
+    final emailRegEx = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
     if(email.isEmpty || email == null){
 
       return 'Email is required';
@@ -25,14 +31,14 @@ class EValidator{
     }
    return null;
   }
-  String? nameValidation(String name){
+  static String? nameValidation(String name){
     if(name.isEmpty){
       return 'Name is required';
     }else{
       return null;
     }
   }
-  String? phoneValidation(String phone){
+  static String? phoneValidation(String phone){
     String patttern = r'(^(?:[+0]9)?[0-9]{10}$)';
     RegExp regExp = new RegExp(patttern);
     if(phone.isEmpty || phone == null ){

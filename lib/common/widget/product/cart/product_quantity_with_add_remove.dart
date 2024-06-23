@@ -17,7 +17,7 @@ class EProductQuantityWithAddRemove extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        ECircaleButton(
+        ECircleButton(
           icon: Iconsax.minus,
           width: 32,
           height: 32,
@@ -28,7 +28,7 @@ class EProductQuantityWithAddRemove extends StatelessWidget {
         const SizedBox(width: ESize.spaceBtwItems),
         Text('2', style: Theme.of(context).textTheme.titleSmall),
         const SizedBox(width: ESize.spaceBtwItems),
-        const ECircaleButton(
+        const ECircleButton(
           icon: Iconsax.add,
           width: 32,
           height: 32,

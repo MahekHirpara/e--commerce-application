@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/common/widget/appbar/appbar.dart';
-import 'package:e_commerce_app/common/widget/product/product_price.dart';
 import 'package:e_commerce_app/features/shop/screen/cart/widgets/cart_item.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:flutter/material.dart';

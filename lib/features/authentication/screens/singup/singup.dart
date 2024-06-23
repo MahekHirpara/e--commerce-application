@@ -1,15 +1,10 @@
 import 'package:e_commerce_app/common/widget_login_sing_up/form_divider.dart';
 import 'package:e_commerce_app/common/widget_login_sing_up/social_buttons.dart';
 import 'package:e_commerce_app/features/authentication/screens/singup/singup_form.dart';
-import 'package:e_commerce_app/utils/constant/color.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:e_commerce_app/utils/constant/text.dart';
-import 'package:e_commerce_app/utils/helper/helper_function.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 class SingUpScreen extends StatelessWidget {
   const SingUpScreen({super.key});
 
@@ -20,7 +15,7 @@ class SingUpScreen extends StatelessWidget {
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
-            padding: EdgeInsets.all(ESize.defaultSpace),
+            padding: const EdgeInsets.all(ESize.defaultSpace),
            child: Column(
              crossAxisAlignment: CrossAxisAlignment.start,
              children: [

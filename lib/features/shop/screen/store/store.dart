@@ -66,7 +66,7 @@ class Store extends StatelessWidget {
                           text: 'Featured Brand',
                           showActionbutton: true,
                           onPressed: () {
-Get.to(()=>AllBrandScreen());
+                            Get.to(() => const AllBrandScreen());
                           },
                         ),
                         const SizedBox(
@@ -121,5 +121,3 @@ Get.to(()=>AllBrandScreen());
     );
   }
 }
-
-

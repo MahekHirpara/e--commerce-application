@@ -26,7 +26,7 @@ class EBottomAddToCart extends StatelessWidget {
         children: [
           Row(
             children: [
-              const ECircaleButton(
+              const ECircleButton(
                 icon: Iconsax.minus,
                 backgroundColor: EColors.darkGrey,
                 width: 40,
@@ -43,7 +43,7 @@ class EBottomAddToCart extends StatelessWidget {
               const SizedBox(
                 width: ESize.spaceBtwItems,
               ),
-              const ECircaleButton(
+              const ECircleButton(
                 icon: Iconsax.add,
                 backgroundColor: EColors.black,
                 width: 40,

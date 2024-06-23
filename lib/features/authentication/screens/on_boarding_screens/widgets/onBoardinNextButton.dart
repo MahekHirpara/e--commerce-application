@@ -5,7 +5,8 @@ import 'package:iconsax/iconsax.dart';
 import '../../../../../utils/constant/size.dart';
 import '../../../../../utils/device/devise_utility.dart';
 import '../../../../../utils/helper/helper_function.dart';
-import '../../../conroller,onbording/controller_onbording.dart';
+import '../../../conroller/controller_onbording.dart';
+
 
 
 

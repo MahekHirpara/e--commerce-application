@@ -15,7 +15,7 @@ class AllBrandScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: EAppBar(
+      appBar: const EAppBar(
         title: Text('Brand'),
         showBackArrow: true,
       ),

@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/utils/constant/enums.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -7,8 +6,8 @@ import 'package:iconsax/iconsax.dart';
 import '../../../utils/constant/size.dart';
 import 'brad_tital_text.dart';
 
-class brantitle_text_with_verifyicon extends StatelessWidget {
-  const brantitle_text_with_verifyicon({
+class BrandTExtWithVerifyIcon extends StatelessWidget {
+  const BrandTExtWithVerifyIcon({
     super.key,
     required this.title,
     this.textColor,

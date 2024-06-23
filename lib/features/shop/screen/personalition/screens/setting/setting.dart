@@ -6,8 +6,8 @@ import 'package:e_commerce_app/features/shop/screen/personalition/screens/addres
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
-
 import '../../../../../../common/widget/list_tile/user_profile_tile.dart';
+import '../../../../../../data/repositories.authentication/authentication_repo.dart';
 import '../../../order/order.dart';
 import '../../../../../../utils/constant/color.dart';
 import '../../../../../../utils/constant/size.dart';
@@ -102,6 +102,14 @@ class SettingScreen extends StatelessWidget {
                     title: 'Account Privacy',
                     subTitle: 'Manage data usage and connected accounts',
                     onTap: () {},
+                  ),
+                  ESettingMenuTile(
+                    icon: Iconsax.security_card,
+                    title: 'LogOut',
+                    subTitle: 'logout',
+                    onTap: () {
+                      AuthenticationRepo.instance.logout();
+                    },
                   ),
 
                   //App Setting
