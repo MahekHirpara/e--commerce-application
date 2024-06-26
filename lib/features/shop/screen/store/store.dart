@@ -3,6 +3,7 @@ import 'package:e_commerce_app/common/widget/appbar/tabbar.dart';
 import 'package:e_commerce_app/common/widget/layout/grid_layout.dart';
 import 'package:e_commerce_app/common/widget/product/cart_menu_icon.dart';
 import 'package:e_commerce_app/common/widget/text/section_heading.dart';
+import 'package:e_commerce_app/features/shop/controller/category_controller.dart';
 import 'package:e_commerce_app/features/shop/screen/store/widget/category_tab.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:e_commerce_app/utils/helper/helper_function.dart';
@@ -18,15 +19,17 @@ class Store extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = CategoryController.instance.featuredCategories;
     final dark = EHelperFunction.isDarkMode(context);
     return DefaultTabController(
-      length: 5,
+      length: controller.length,
       child: Scaffold(
         appBar: EAppBar(
           title: Text(
             'Store',
             style: Theme.of(context).textTheme.headlineMedium,
           ),
+          showBackArrow: true,
           actions: [
             ECartCounterIcon(
               onpressed: () {},
@@ -86,35 +89,13 @@ class Store extends StatelessWidget {
                     ),
                   ),
                   //tabs
-                  bottom: const ETabbar(
-                    tabs: [
-                      Tab(
-                        child: Text('Sports'),
-                      ),
-                      Tab(
-                        child: Text('Furniture'),
-                      ),
-                      Tab(
-                        child: Text('Electronic'),
-                      ),
-                      Tab(
-                        child: Text('Clothes'),
-                      ),
-                      Tab(
-                        child: Text('cosmatic'),
-                      ),
-                    ],
-                  )),
+                  bottom:  ETabbar(
+                    tabs: controller.map((category) => Tab(child: Text(category.name),),).toList()),
+                  ),
             ];
           },
-          body: const TabBarView(
-            children: [
-              ECatogoryTab(),
-              ECatogoryTab(),
-              ECatogoryTab(),
-              ECatogoryTab(),
-              ECatogoryTab(),
-            ],
+          body:  TabBarView(
+            children: controller.map((element) => ECatogoryTab(category: element,)).toList(),
           ),
         ),
       ),

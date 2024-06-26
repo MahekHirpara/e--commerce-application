@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:e_commerce_app/common/widget_login_sing_up/success.dart';
-import 'package:e_commerce_app/data/repositories.authentication/authentication_repo.dart';
 import 'package:e_commerce_app/utils/popups/loader.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
+import '../../../../data/repositories/authentication_repo.dart';
 import '../../../../utils/constant/image_string.dart';
 import '../../../../utils/constant/text.dart';
 
@@ -40,7 +40,7 @@ class VerifyEmailController extends GetxController {
           timer.cancel();
           Get.off(
             () => SuccessScreen(
-              image: EImages.emailSuccess,
+              image: EImages.deliveredEmailIllustration,
               title: EText.yourAccountCreatedTitle,
               subTitle: EText.yourAccountCreatedSubTitle,
               onpressed: () =>
@@ -58,7 +58,7 @@ class VerifyEmailController extends GetxController {
     if (currentUser != null && currentUser.emailVerified) {
       Get.off(
         () => SuccessScreen(
-          image: EImages.emailSuccess,
+          image: EImages.deliveredEmailIllustration,
           title: EText.yourAccountCreatedTitle,
           subTitle: EText.yourAccountCreatedSubTitle,
           onpressed: () =>

@@ -39,7 +39,7 @@ class EProductCardHorizontal extends StatelessWidget {
                   height: 120,
                   width: 120,
                   child: ERoundedImage(
-                    imageurl: EImages.promo2,
+                    imageurl: EImages.productImage1,
                     applyimageRadius: true,
                     fit: BoxFit.cover,
                   ),

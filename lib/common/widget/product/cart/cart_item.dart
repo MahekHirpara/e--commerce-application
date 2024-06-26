@@ -19,7 +19,7 @@ class ECartItem extends StatelessWidget {
     return Row(
       children: [
         ERoundedImage(
-          imageurl: EImages.promo1,
+          imageurl: EImages.productImage1,
           width: 60,
           height: 60,
           padding: const EdgeInsets.all(ESize.sm),

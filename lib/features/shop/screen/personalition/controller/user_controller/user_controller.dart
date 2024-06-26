@@ -1,5 +1,4 @@
-import 'package:e_commerce_app/data/repositories.authentication/authentication_repo.dart';
-import 'package:e_commerce_app/data/repositories.authentication/user_repo/user_repository.dart';
+
 import 'package:e_commerce_app/features/authentication/modals/user_modal/user_modal.dart';
 import 'package:e_commerce_app/features/authentication/screens/login/login.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
@@ -9,6 +8,8 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../../../../data/repositories/authentication_repo.dart';
+import '../../../../../../data/repositories/user_repo/user_repository.dart';
 import '../../../../../../utils/constant/image_string.dart';
 import '../../../../../../utils/popups/full_screen_loader.dart';
 import '../../../../../authentication/conroller/network_manager.dart';

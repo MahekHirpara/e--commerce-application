@@ -24,7 +24,7 @@ class SubCategoriesScreen extends StatelessWidget {
             children: [
               //banner
               const ERoundedImage(
-                imageurl: EImages.promo3,
+                imageurl: EImages.promoBanner1,
                 width: double.infinity,
                 applyimageRadius: true,
               ),

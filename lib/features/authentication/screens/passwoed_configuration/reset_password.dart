@@ -33,7 +33,7 @@ class ResetPassword extends StatelessWidget {
           child: Column(
             children: [
               //Image
-              Image(image:const AssetImage(EImages.emailVerify1), width: EHelperFunction.screenWidth() * 0.6,),
+              Image(image:const AssetImage(EImages.deliveredEmailIllustration), width: EHelperFunction.screenWidth() * 0.6,),
               const SizedBox(height: ESize.spaceBtwItems,),
 
               Text(email,style: Theme.of(context).textTheme.bodyMedium,textAlign: TextAlign.center,),

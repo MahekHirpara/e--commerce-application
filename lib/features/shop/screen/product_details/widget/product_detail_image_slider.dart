@@ -9,13 +9,14 @@ import '../../../../../utils/constant/color.dart';
 import '../../../../../utils/constant/image_string.dart';
 import '../../../../../utils/constant/size.dart';
 import '../../../../../utils/helper/helper_function.dart';
+import '../../../modal/product_modal.dart';
 
 class EProductImageSlider extends StatelessWidget {
   const EProductImageSlider({
-    super.key,
+    super.key, required this.product,
   });
 
-
+  final ProductModal product;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class EProductImageSlider extends StatelessWidget {
               padding: EdgeInsets.all(ESize.productImageRadius * 2),
               child: Center(
                 child: Image(
-                  image: AssetImage(EImages.shoes1),
+                  image: AssetImage(EImages.productImage2),
                 ),),
             ),
           ),
@@ -52,7 +53,7 @@ class EProductImageSlider extends StatelessWidget {
                       backgroundColor: dark ? EColors.dark : EColors.white,
                       border: Border.all(color: EColors.primary),
                       padding: const EdgeInsets.all(ESize.sm),
-                      imageurl: EImages.promo1);
+                      imageurl: EImages.productImage2);
                 },
                 separatorBuilder: (_, __) =>
                 const SizedBox(width: ESize.spaceBtwItems,),

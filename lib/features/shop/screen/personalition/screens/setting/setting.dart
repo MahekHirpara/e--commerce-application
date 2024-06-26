@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
 import '../../../../../../common/widget/list_tile/user_profile_tile.dart';
-import '../../../../../../data/repositories.authentication/authentication_repo.dart';
+import '../../../../../../data/repositories/authentication_repo.dart';
 import '../../../order/order.dart';
 import '../../../../../../utils/constant/color.dart';
 import '../../../../../../utils/constant/size.dart';

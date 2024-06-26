@@ -1,5 +1,4 @@
 
-import 'package:e_commerce_app/data/repositories.authentication/authentication_repo.dart';
 import 'package:e_commerce_app/utils/constant/image_string.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:e_commerce_app/utils/constant/text.dart';
@@ -8,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../data/repositories/authentication_repo.dart';
 import '../../conroller/singup_controller/verify_email_controller.dart';
 class VerifyEmailScreen extends StatelessWidget {
   const VerifyEmailScreen({super.key, required this.email});
@@ -28,7 +28,7 @@ final String? email;
           child: Column(
             children: [
             //image
-              Image(image:const AssetImage(EImages.emailVerify1), width: EHelperFunction.screenWidth() * 0.6,),
+              Image(image:const AssetImage(EImages.deliveredEmailIllustration), width: EHelperFunction.screenWidth() * 0.6,),
               const SizedBox(height: ESize.spaceBtwItems,),
               Text(EText.confirmEmail,style: Theme.of(context).textTheme.headlineMedium,textAlign: TextAlign.center,),
               const SizedBox(height: ESize.spaceBtwItems,),

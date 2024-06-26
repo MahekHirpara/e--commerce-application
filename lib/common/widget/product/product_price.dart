@@ -21,7 +21,7 @@ class EProductPrice extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       style: isLarge ?
       Theme.of(context).textTheme.headlineMedium!.apply(decoration: lineThrough ? TextDecoration.lineThrough :null)
-          : Theme.of(context).textTheme.titleLarge!.apply(decoration: lineThrough ? TextDecoration.lineThrough :null),
+          : Theme.of(context).textTheme.headlineSmall!.apply(decoration: lineThrough ? TextDecoration.lineThrough :null),
     );
   }
 }

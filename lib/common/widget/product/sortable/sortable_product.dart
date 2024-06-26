@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/shop/modal/product_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -38,7 +39,7 @@ class ESortableProducts extends StatelessWidget {
         EGrideLayout(
           itemCount: 6,
           itemBuilder: (_, index) {
-            return const GridVertical();
+            return  GridVertical(product: ProductModal.empty(),);
           },
         ),
       ],

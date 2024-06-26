@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/Routs/app_routs.dart';
 import 'package:e_commerce_app/binding/general_binding.dart';
 import 'package:e_commerce_app/utils/constant/color.dart';
 import 'package:e_commerce_app/utils/theme/theme.dart';
@@ -5,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'data/repositories.authentication/authentication_repo.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'data/repositories/authentication_repo.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       initialBinding: GeneralBinding(),
+      getPages: AppRouts.pages,
       home: const Scaffold(backgroundColor: EColors.primary,body: Center(child: CircularProgressIndicator(color : Colors.white)),),
     );
   }

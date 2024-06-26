@@ -1,4 +1,4 @@
-
+import 'package:e_commerce_app/features/shop/modal/product_modal.dart';
 import 'package:e_commerce_app/features/shop/screen/all_product/all_product.dart';
 import 'package:e_commerce_app/features/shop/screen/home/widgets/home_appbar.dart';
 import 'package:e_commerce_app/features/shop/screen/home/widgets/home_categories.dart';
@@ -12,13 +12,16 @@ import '../../../../common/widget/custom_shap/container/serach_container.dart';
 import '../../../../common/widget/layout/grid_layout.dart';
 import '../../../../common/widget/product/product_cart/product_cart_vertical.dart';
 import '../../../../common/widget/text/section_heading.dart';
+import '../../../../common/widget/vertical_product_shimmer.dart';
+import '../../controller/product_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+final controller = Get.put(ProductController());
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -51,7 +54,6 @@ class HomeScreen extends StatelessWidget {
                           height: ESize.spaceBtwItems,
                         ),
                         HomeCategories(),
-
                       ],
                     ),
                   ),
@@ -67,21 +69,38 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.all(ESize.defaultSpace),
               child: Column(
                 children: [
-                  const PromoSlider(banner: [EImages.promo1,EImages.promo2,EImages.promo3,EImages.promo4,],),
-                  const SizedBox(height: ESize.spaceBtwSection,),
+                  const PromoSlider(),
+                  const SizedBox(
+                    height: ESize.spaceBtwSection,
+                  ),
                   //heading
-                  ESectionHeading(text:"Popular product",onPressed:(){
-                    Get.to(()=>const AllProductScreen());
-                  },showActionbutton: true,),
-                  const SizedBox(height: ESize.spaceBtwItems,),
+                  ESectionHeading(
+                    text: "Popular product",
+                    onPressed: () {
+                      Get.to(() => const AllProductScreen());
+                    },
+                    showActionbutton: true,
+                  ),
+                  const SizedBox(
+                    height: ESize.spaceBtwItems,
+                  ),
                   //add to cart button
-                  EGrideLayout(
-                    itemCount: 6,
-                    itemBuilder: (_,index){
-                    return const GridVertical();
-                  },),
+                  Obx(
+                    () {
+                      if(controller.isLoading.value) return const EVerticalProductShimmer();
 
-
+                      if(controller.featuredProducts.isEmpty){
+                        return Center(child: Text('No Data Found!',style: Theme.of(context).textTheme.bodyMedium,));
+                      }
+                      return
+                        EGrideLayout(
+                        itemCount: controller.featuredProducts.length,
+                        itemBuilder: (_, index) {
+                          return  GridVertical(product: controller.featuredProducts[index]);
+                        },
+                      );
+                    },
+                  ),
                 ],
               ),
             )
@@ -91,7 +110,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-

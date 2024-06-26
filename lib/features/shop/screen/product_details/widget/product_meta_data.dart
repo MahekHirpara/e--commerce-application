@@ -66,7 +66,7 @@ class EProductMEtaData extends StatelessWidget {
         Row(
           children: [
             ECircularImage(
-                image: EImages.cosmatic,
+                image: EImages.nikeLogo,
               width: 32,
                 height: 32,
               overlayColor: dark ? EColors.white : EColors.black,

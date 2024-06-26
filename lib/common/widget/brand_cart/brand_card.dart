@@ -35,7 +35,7 @@ class EBrandcard extends StatelessWidget {
             //Icon
             Flexible(
               child: ECircularImage(
-                image: EImages.nike,
+                image: EImages.nikeLogo,
                 isNetworkImage: false,
                 backgroundColor: Colors.transparent,
                 overlayColor: dark ? EColors.white:EColors.black,

@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../../../utils/constant/size.dart';
+import '../shinmer.dart';
 
 class ERoundedImage extends StatelessWidget {
   const ERoundedImage({
@@ -36,16 +38,25 @@ class ERoundedImage extends StatelessWidget {
         height: height,
         padding: padding,
         decoration: BoxDecoration(
-          border: border,
+          border:border,
           borderRadius: BorderRadius.circular(borderRadius!),
           color: backgroundColor,
         ),
         child: ClipRRect(
           borderRadius: applyimageRadius ? BorderRadius.circular(borderRadius!) :BorderRadius.zero,
-          child:  Image(
-            image: isNetworkImage ? NetworkImage(imageurl) : AssetImage(imageurl) as ImageProvider,
+          child:isNetworkImage
+              ? CachedNetworkImage(
+            imageUrl: imageurl,
+            fit: fit,
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+             EShimmerEffect(width: width, height: height,radius: borderRadius,),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+          )
+              : Image(
+            image:AssetImage(imageurl) ,
             fit: fit,
           ),
+
         ),
       ),
     );

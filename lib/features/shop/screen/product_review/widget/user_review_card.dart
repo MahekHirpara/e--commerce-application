@@ -21,7 +21,7 @@ class UserReviewCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                const CircleAvatar(backgroundImage: AssetImage(EImages.cosmatic),),
+                const CircleAvatar(backgroundImage: AssetImage(EImages.nikeLogo),),
                 const SizedBox(width : ESize.spaceBtwItems),
                 Text('John Doe',style: Theme.of(context).textTheme.titleLarge,),
               ],

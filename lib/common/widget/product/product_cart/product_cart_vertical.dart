@@ -1,7 +1,10 @@
 import 'package:e_commerce_app/common/style/shadow.dart';
 import 'package:e_commerce_app/common/widget/custom_shap/container/circular_container.dart';
 import 'package:e_commerce_app/common/widget/image/rounded_image.dart';
+import 'package:e_commerce_app/features/shop/controller/product_controller.dart';
+import 'package:e_commerce_app/features/shop/modal/product_modal.dart';
 import 'package:e_commerce_app/features/shop/screen/product_details/product_details.dart';
+import 'package:e_commerce_app/utils/constant/enums.dart';
 import 'package:e_commerce_app/utils/constant/image_string.dart';
 import 'package:e_commerce_app/utils/helper/helper_function.dart';
 import 'package:flutter/material.dart';
@@ -15,17 +18,21 @@ import '../../text/product_title_text.dart';
 import '../product_price.dart';
 
 class GridVertical extends StatelessWidget {
-  const GridVertical({super.key});
+  const GridVertical({super.key, required this.product,});
 
+
+final ProductModal product;
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
+   final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     final dark = EHelperFunction.isDarkMode(context);
     return GestureDetector(
       onTap:(){
-        Get.to(() => const ProductDetails());
+        Get.to(() =>  ProductDetails(product: product,));
       },
       child: Container(
-        width: 180,
+        width: 190,
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           boxShadow: [EShadowStyle.verticalProductShadow],
@@ -33,19 +40,24 @@ class GridVertical extends StatelessWidget {
           color: dark ? EColors.dark : EColors.light,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //thumbnail
             ECircularContainer(
                 height: 180,
+                width: 180,
                 padding: const EdgeInsets.all(ESize.xs),
                 backgroundColor: dark ? EColors.dark : EColors.light,
                 child: Stack(
                   children: [
-                    const ERoundedImage(
-                      imageurl: EImages.shoes1,
-                      applyimageRadius: true,
-                      fit: BoxFit.cover,
-                    ),
+                     Center(
+                       child: ERoundedImage(
+                        imageurl: product.thumbnail,
+                        applyimageRadius: true,
+                        fit: BoxFit.cover,
+                         isNetworkImage: true,
+                                           ),
+                     ),
                     //Sale Tag
                     Positioned(
                       top: 12,
@@ -55,7 +67,7 @@ class GridVertical extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: ESize.sm, vertical: ESize.xs),
                         child: Text(
-                          '25%',
+                          '$salePercentage%',
                           style: Theme.of(context)
                               .textTheme
                               .labelLarge!
@@ -75,19 +87,19 @@ class GridVertical extends StatelessWidget {
                   ],
                 )),
             //Details
-            Padding(
+             Padding(
                 padding: const EdgeInsets.only(left: ESize.sm),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const ProductTitleText(
-                      title: 'Black Nike Shoes',
+                    ProductTitleText(
+                      title: product.title,
                       smallSize: true,
                     ),
                     const SizedBox(
                       height: ESize.spaceBtwItems / 2,
                     ),
-                    BrandTExtWithVerifyIcon(title: 'Nike'),
+                    BrandTExtWithVerifyIcon(title: product.brand!.name),
 
                   ],
                 ),
@@ -97,10 +109,22 @@ class GridVertical extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //price
-                const Padding(
-                  padding: EdgeInsets.only(left: ESize.sm),
-                  child: EProductPrice(price: '35.5',isLarge: true,),
-                ),
+                Flexible(
+                    child: Column(
+                  children: [
+                    if(product.productType == ProductType.single.toString() && product.salePrice >0)
+                      Padding(
+                        padding: const EdgeInsets.only(left: ESize.sm),
+                        child: Text(product.price.toString(),style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),),
+                      ),
+                     Padding(
+                      padding: const EdgeInsets.only(left: ESize.sm),
+                      child: EProductPrice(price: controller.getProductPrice(product) ,),
+                    ),
+                  ],
+                ),),
+
+
 
                 Container(
                   decoration: BoxDecoration(
@@ -117,7 +141,7 @@ class GridVertical extends StatelessWidget {
                       child: Icon(
                         Iconsax.add,
                         color: EColors.white,
-                      )),
+                      ),),
                 ),
               ],
             ),

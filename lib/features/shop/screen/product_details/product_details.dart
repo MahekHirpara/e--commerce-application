@@ -12,9 +12,12 @@ import 'package:readmore/readmore.dart';
 import 'package:get/get.dart';
 
 import '../../../../utils/constant/size.dart';
+import '../../modal/product_modal.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key});
+  const ProductDetails({super.key, required this.product,});
+  final ProductModal product;
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,9 @@ class ProductDetails extends StatelessWidget {
         child: Column(
           children: [
             //Product Slider
-            const EProductImageSlider(),
+             EProductImageSlider(
+              product: product,
+            ),
             //product Detail
 
             Padding(

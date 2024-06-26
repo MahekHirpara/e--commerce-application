@@ -1,5 +1,4 @@
-import 'package:e_commerce_app/data/repositories.authentication/authentication_repo.dart';
-import 'package:e_commerce_app/data/repositories.authentication/user_repo/user_repository.dart';
+
 import 'package:e_commerce_app/features/authentication/modals/user_modal/user_modal.dart';
 import 'package:e_commerce_app/features/authentication/screens/singup/verify_email.dart';
 import 'package:e_commerce_app/utils/constant/image_string.dart';
@@ -7,6 +6,8 @@ import 'package:e_commerce_app/utils/popups/full_screen_loader.dart';
 import 'package:e_commerce_app/utils/popups/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../data/repositories/authentication_repo.dart';
+import '../../../../data/repositories/user_repo/user_repository.dart';
 import '../network_manager.dart';
 
 class SingUpController extends GetxController {

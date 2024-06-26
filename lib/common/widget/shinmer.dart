@@ -11,7 +11,7 @@ class EShimmerEffect extends StatelessWidget {
      this.radius=15,
     this.color});
 
-  final double width,height,radius;
+  final double? width,height,radius;
   final Color? color;
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class EShimmerEffect extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           color: color ?? (dark? EColors.darkerGrey : EColors.white),
-          borderRadius: BorderRadius.circular(radius),
+          borderRadius: BorderRadius.circular(radius!),
         ),
       ),
     );

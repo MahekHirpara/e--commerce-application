@@ -1,8 +1,9 @@
-import 'package:e_commerce_app/data/repositories.authentication/authentication_repo.dart';
+
 import 'package:e_commerce_app/features/authentication/screens/passwoed_configuration/reset_password.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '../../../../data/repositories/authentication_repo.dart';
 import '../../../../utils/constant/image_string.dart';
 import '../../../../utils/popups/full_screen_loader.dart';
 import '../../../../utils/popups/loader.dart';
