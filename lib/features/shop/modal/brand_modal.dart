@@ -4,14 +4,14 @@ class BrandModal {
   String id;
   String name;
   String image;
-  bool? isIsFeatured;
+  bool? IsFeatured;
   int? productsCount;
 
   BrandModal({
     required this.id,
     required this.image,
     required this.name,
-    this.isIsFeatured,
+    this.IsFeatured,
     this.productsCount,
 
 });
@@ -24,7 +24,7 @@ class BrandModal {
       'Image' :name,
       'Name': name,
       'ProductCount' : productsCount,
-      'IsFeatured' : isIsFeatured,
+      'IsFeatured' : IsFeatured,
     };
   }
 
@@ -34,6 +34,8 @@ class BrandModal {
         id: data['Id'] ?? '',
         image:  data['Image'] ?? '',
         name:  data['Name'] ?? '',
+        productsCount : data['ProductCount'] ?? 0,
+       IsFeatured:  data['IsFeatured'] ?? false,
     );
 
   }
@@ -45,6 +47,8 @@ class BrandModal {
         id: document.id,
         image:  data['Image'] ?? '',
         name:  data['Name'] ?? '',
+        productsCount : data['ProductCount'] ?? 0,
+        IsFeatured:  data['IsFeatured'] ?? false,
       );
     }else{
       return BrandModal.empty();

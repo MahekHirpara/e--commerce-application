@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce_app/features/shop/modal/product_modal.dart';
 import 'package:e_commerce_app/features/shop/screen/all_product/all_product.dart';
 import 'package:e_commerce_app/features/shop/screen/home/widgets/home_appbar.dart';
@@ -77,7 +78,12 @@ final controller = Get.put(ProductController());
                   ESectionHeading(
                     text: "Popular product",
                     onPressed: () {
-                      Get.to(() => const AllProductScreen());
+                      Get.to(() =>  AllProductScreen(
+                        title: 'Popular Products',
+                        // query: FirebaseFirestore.instance.collection('Products').where('IsFeatured',isEqualTo: true).limit(6),
+                      futureMethod: controller.fetchAllFeaturedProduct(),
+                      ),
+                      );
                     },
                     showActionbutton: true,
                   ),

@@ -6,6 +6,7 @@ import 'package:e_commerce_app/features/shop/screen/product_details/widget/produ
 import 'package:e_commerce_app/features/shop/screen/product_details/widget/product_meta_data.dart';
 import 'package:e_commerce_app/features/shop/screen/product_details/widget/rating_share_widget.dart';
 import 'package:e_commerce_app/features/shop/screen/product_review/product_review.dart';
+import 'package:e_commerce_app/utils/constant/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
@@ -22,7 +23,7 @@ class ProductDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const EBottomAddToCart(),
+      bottomNavigationBar:  EBottomAddToCart(product: product),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -43,11 +44,12 @@ class ProductDetails extends StatelessWidget {
                   const ERatingAndShare(),
 
                   //Price,title,stock,& Brand
-                  const EProductMEtaData(),
+                   EProductMEtaData(product: product,),
                   const SizedBox(height: ESize.spaceBtwSection,),
 
                   //Attribute
-                  const EProductAttribute(),
+                  if(product.productType == ProductType.variable.toString()) EProductAttribute(product: product,),
+
                   const SizedBox(height: ESize.spaceBtwSection,),
 
                   //checkout Button
@@ -63,14 +65,14 @@ class ProductDetails extends StatelessWidget {
                   //Description
                   const ESectionHeading(text: 'Description',showActionbutton: false,),
                   const SizedBox(height: ESize.spaceBtwItems,),
-                  const ReadMoreText(
-                    'Discription for black zara dress.Discription for black zara dress.Discription for black zara dress.Discription for black zara dress',
+                   ReadMoreText(
+                    product.description ?? '',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show more',
                     trimExpandedText: ' Less',
-                    moreStyle: TextStyle(fontSize: 14,fontWeight: FontWeight.w800),
-                    lessStyle: TextStyle(fontSize: 14,fontWeight: FontWeight.w800),
+                    moreStyle: const TextStyle(fontSize: 14,fontWeight: FontWeight.w800),
+                    lessStyle: const TextStyle(fontSize: 14,fontWeight: FontWeight.w800),
                   ),
 
 

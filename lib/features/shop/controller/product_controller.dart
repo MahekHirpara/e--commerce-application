@@ -40,6 +40,18 @@ class ProductController extends GetxController{
     }
   }
 
+  Future<List<ProductModal>> fetchAllFeaturedProduct() async{
+    try{
+      //get product
+      final products = await _productRepo.getAllFeaturedProducts();
+      return products;
+    }catch(e){
+      ELoaders.errorSnackBar(title: 'Oh Snap !', message: e.toString());
+      return [];
+    }
+
+  }
+
   String getProductPrice(ProductModal product){
     double smallestPrice = double.infinity;
     double largestPrice = 0.0 ;

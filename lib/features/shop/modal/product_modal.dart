@@ -81,12 +81,12 @@ class ProductModal{
         productType: data['ProductType'] ?? '',
         sku:data['SKU'] ?? '' ,
         salePrice: double.tryParse(data['SalePrice']?.toString() ?? '0.0') ?? 0.0,
-      brand: BrandModal.fromJson(data['Brand']),
+      brand: data['Brand'] != null ?BrandModal.fromJson(data['Brand']) : BrandModal.empty(),
       categoryId:data['CategoryId'] ?? '' ,
       description: data['Description'] ?? '',
       images: data['Images'] != null ? List<String>.from(data['Images']) : [],
       isFeatured: data['IsFeatured'] ?? false,
-      productAttributes: (data['ProductAttributs'] as List<dynamic>).map((e) => ProductAttributeModal.fromJson(e)).toList(),
+      productAttributes: data['ProductAttributs'] != null? (data['ProductAttributs'] as List<dynamic>).map((e) => ProductAttributeModal.fromJson(e)).toList() : [],
       productVariations: data['productVariations'] != null ?(data['productVariations'] as List<dynamic>).map((e) => ProductVariationModal.fromJson(e)).toList() : [],
     );
   }
@@ -103,7 +103,7 @@ class ProductModal{
       productType: data['ProductType'] ?? '',
       sku:data['SKU'] ?? '' ,
       salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
-      brand: BrandModal.fromJson(data['Brand']),
+      brand:data['Brand'] != null ?BrandModal.fromJson(data['Brand']) : BrandModal.empty(),
       categoryId:data['CategoryId'] ?? '' ,
       description: data['Description'] ?? '',
       images: data['Images'] != null ? List<String>.from(data['Images']) : [],

@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/shop/modal/brand_modal.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constant/color.dart';
@@ -14,11 +15,12 @@ class EBrandcard extends StatelessWidget {
     super.key,
     required this.showborder,
     this.onPressed,
-
+    required this.brand,
   });
 
   final bool showborder;
   final void Function()? onPressed;
+  final BrandModal brand;
 
 
   @override
@@ -35,8 +37,8 @@ class EBrandcard extends StatelessWidget {
             //Icon
             Flexible(
               child: ECircularImage(
-                image: EImages.nikeLogo,
-                isNetworkImage: false,
+                image: brand.image,
+                isNetworkImage: true,
                 backgroundColor: Colors.transparent,
                 overlayColor: dark ? EColors.white:EColors.black,
               ),
@@ -47,8 +49,8 @@ class EBrandcard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const BrandTExtWithVerifyIcon(title: 'Nike', brandTextSize: TextSizes.large,),
-                  Text('256 product with Sdfvbgf', overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.labelMedium,),
+                   BrandTExtWithVerifyIcon(title: brand.name, brandTextSize: TextSizes.large,),
+                  Text('${brand.productsCount ?? 0} products', overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.labelMedium,),
                 ],
               ),
             ),

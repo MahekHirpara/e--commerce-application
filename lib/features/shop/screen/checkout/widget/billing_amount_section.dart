@@ -1,11 +1,16 @@
+import 'package:e_commerce_app/features/shop/controller/product/cart_controller.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../utils/helper/pricing.dart';
 
 class EBillingAmountSection extends StatelessWidget {
   const EBillingAmountSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cartController = CartController.instance;
+    final subTotal = cartController.totalCartPrice.value;
     return Column(
       children: [
         Row(
@@ -15,7 +20,7 @@ class EBillingAmountSection extends StatelessWidget {
               'Subtotal',style: Theme.of(context).textTheme.bodyMedium,
             ),
             Text(
-              '\$255.0',style: Theme.of(context).textTheme.bodyMedium,
+              '\$$subTotal',style: Theme.of(context).textTheme.bodyMedium,
             ),
           ],
         ),
@@ -28,7 +33,7 @@ class EBillingAmountSection extends StatelessWidget {
               'Shipping fee',style: Theme.of(context).textTheme.bodyMedium,
             ),
             Text(
-              '\$6.0',style: Theme.of(context).textTheme.labelMedium,
+              '\$${EPricing.calculateShippingCost(subTotal, 'US')}',style: Theme.of(context).textTheme.labelMedium,
             ),
           ],
         ),
@@ -41,7 +46,7 @@ class EBillingAmountSection extends StatelessWidget {
               'Tax Fee',style: Theme.of(context).textTheme.bodyMedium,
             ),
             Text(
-              '\$6.0',style: Theme.of(context).textTheme.labelMedium,
+              '\$${EPricing.calculateTax(subTotal, 'US')}',style: Theme.of(context).textTheme.labelMedium,
             ),
           ],
         ),
@@ -54,7 +59,7 @@ class EBillingAmountSection extends StatelessWidget {
               'Order Total',style: Theme.of(context).textTheme.bodyMedium,
             ),
             Text(
-              '\$267.0',style: Theme.of(context).textTheme.titleMedium,
+              '\$${EPricing.calculateTotalPrice(subTotal, 'US')}',style: Theme.of(context).textTheme.titleMedium,
             ),
           ],
         ),

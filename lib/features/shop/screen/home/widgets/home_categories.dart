@@ -35,7 +35,7 @@ class HomeCategories extends StatelessWidget {
                       images: category.image,
                       title: category.name,
                       onTap: () {
-                        Get.to(() => const SubCategoriesScreen());
+                        Get.to(() =>  SubCategoriesScreen(category: category,));
                       },
 
                     );

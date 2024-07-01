@@ -1,22 +1,30 @@
 import 'package:e_commerce_app/common/widget/custom_shap/container/circular_container.dart';
+import 'package:e_commerce_app/common/widget/fav_icon/favourite_icon.dart';
 import 'package:e_commerce_app/common/widget/product/product_title_text.dart';
 import 'package:e_commerce_app/common/widget/text/brand_title_with_verify_icon.dart';
+import 'package:e_commerce_app/features/shop/modal/product_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../features/shop/controller/product_controller.dart';
 import '../../../../utils/constant/color.dart';
-import '../../../../utils/constant/image_string.dart';
+import 'package:get/get.dart';
+import '../../../../utils/constant/enums.dart';
 import '../../../../utils/constant/size.dart';
 import '../../../../utils/helper/helper_function.dart';
-import '../../icons/ECircleIcon.dart';
+
 import '../../image/rounded_image.dart';
 import '../product_price.dart';
 
 class EProductCardHorizontal extends StatelessWidget {
-  const EProductCardHorizontal({super.key});
+  const EProductCardHorizontal({super.key, required this.product});
+
+  final ProductModal product;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
+    final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     final dark = EHelperFunction.isDarkMode(context);
     return Container(
       width: 310,
@@ -35,13 +43,14 @@ class EProductCardHorizontal extends StatelessWidget {
             backgroundColor: dark ? EColors.darkerGrey : EColors.lightContainer,
             child: Stack(
               children: [
-                const SizedBox(
+                 SizedBox(
                   height: 120,
                   width: 120,
                   child: ERoundedImage(
-                    imageurl: EImages.productImage1,
+                    imageurl: product.thumbnail,
                     applyimageRadius: true,
                     fit: BoxFit.cover,
+                    isNetworkImage: true,
                   ),
                 ),
 
@@ -54,7 +63,7 @@ class EProductCardHorizontal extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: ESize.sm, vertical: ESize.xs),
                     child: Text(
-                      '25%',
+                      '$salePercentage%',
                       style: Theme.of(context)
                           .textTheme
                           .labelLarge!
@@ -64,13 +73,10 @@ class EProductCardHorizontal extends StatelessWidget {
                 ),
 
                 //wishlist
-                const Positioned(
+                 Positioned(
                   top: 0,
                   right: 0,
-                  child: ECircleButton(
-                    icon: Iconsax.heart5,
-                    color: Colors.red,
-                  ),
+                  child: EFavouriteIcon(productId: product.id),
                 ),
               ],
             ),
@@ -84,49 +90,61 @@ class EProductCardHorizontal extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Column(
+                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       EProductTitleText(
-                        title: 'Black nike shoes',
+                        title: product.title,
                         smallSize: true,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: ESize.spaceBtwItems / 2,
                       ),
-                      BrandTExtWithVerifyIcon(title: 'Nike'),
+                       BrandTExtWithVerifyIcon(title: product.brand!.name),
                     ],
                   ),
                   const Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Flexible(
-                          child: EProductPrice(
-                        price: '35.5-256678943',
-                        isLarge: true,
-                      )),
+                      //price
+                      Flexible(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            if(product.productType == ProductType.single.toString() && product.salePrice >0)
+                              Padding(
+                                padding: const EdgeInsets.only(left: ESize.sm),
+                                child: Text(product.price.toString(),style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),),
+                              ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: ESize.sm),
+                              child: EProductPrice(price: controller.getProductPrice(product) ,),
+                            ),
+                          ],
+                        ),),
 
-                      //add to cark
+
+
                       Container(
                         decoration: BoxDecoration(
                           color: dark ? EColors.primary : EColors.black,
                           borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(ESize.cardRadiusMd),
                             bottomRight:
-                                Radius.circular(ESize.productImageRadius),
+                            Radius.circular(ESize.productImageRadius),
                           ),
                         ),
                         child: const SizedBox(
-                            width: ESize.iconslg * 1.2,
-                            height: ESize.iconslg * 1.2,
-                            child: Icon(
-                              Iconsax.add,
-                              color: EColors.white,
-                            )),
+                          width: ESize.iconslg *1.2,
+                          height: ESize.iconslg *1.2,
+                          child: Icon(
+                            Iconsax.add,
+                            color: EColors.white,
+                          ),),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

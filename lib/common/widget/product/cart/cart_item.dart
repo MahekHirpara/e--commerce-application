@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/shop/modal/cart_item_modal.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constant/color.dart';
@@ -8,10 +9,13 @@ import '../../image/rounded_image.dart';
 import '../../text/brand_title_with_verify_icon.dart';
 import '../product_title_text.dart';
 
-class ECartItem extends StatelessWidget {
-  const ECartItem({
+class ECartItemForCart extends StatelessWidget {
+  const ECartItemForCart({
     super.key,
+    required this.item,
   });
+
+  final CartItemModal item;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +23,10 @@ class ECartItem extends StatelessWidget {
     return Row(
       children: [
         ERoundedImage(
-          imageurl: EImages.productImage1,
+          imageurl: item.images ?? '',
           width: 60,
           height: 60,
+          isNetworkImage: true,
           padding: const EdgeInsets.all(ESize.sm),
           backgroundColor: dark ? EColors.darkerGrey : EColors.light,
         ),
@@ -35,29 +40,33 @@ class ECartItem extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const BrandTExtWithVerifyIcon(title: 'Zara'),
-              const Flexible(
+              BrandTExtWithVerifyIcon(title: item.brandName ?? ''),
+              Flexible(
                   child: EProductTitleText(
-                title: 'Black ZARA Dress',
+                title: item.title,
                 maxline: 1,
               )),
 
               //Attribute
 
-              Text.rich(TextSpan(children: [
+              Text.rich(
                 TextSpan(
-                    text: 'Color ',
-                    style: Theme.of(context).textTheme.bodySmall),
-                TextSpan(
-                    text: 'Black',
-                    style: Theme.of(context).textTheme.bodyLarge),
-                TextSpan(
-                    text: 'Size ',
-                    style: Theme.of(context).textTheme.bodySmall),
-                TextSpan(
-                    text: 'Small',
-                    style: Theme.of(context).textTheme.bodyLarge),
-              ]))
+                    children: (item.selectedVariation ?? {})
+                        .entries
+                        .map(
+                          (e) => TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: '${e.key}',
+                                  style: Theme.of(context).textTheme.bodySmall),
+                              TextSpan(
+                                  text: '${e.value}',
+                                  style: Theme.of(context).textTheme.bodyLarge),
+                            ],
+                          ),
+                        )
+                        .toList()),
+              ),
             ],
           ),
         ),

@@ -37,22 +37,6 @@ class EverticalIconText extends StatelessWidget {
               backgroundColor: backgroundColor,
               overlayColor: EHelperFunction.isDarkMode(context) ? EColors.light:EColors.dark,
             ),
-            // Container(
-            //   width: 56,
-            //   height: 56,
-            //   padding: const EdgeInsets.all(ESize.sm),
-            //   decoration: BoxDecoration(
-            //     borderRadius:
-            //     BorderRadius.circular(100),
-            //     color:(EHelperFunction.isDarkMode(context) ? EColors.black:EColors.white),
-            //   ),
-            //   child:  Center(
-            //     child: Image(
-            //       image: AssetImage(images),
-            //       fit: BoxFit.cover,
-            //       color: (EHelperFunction.isDarkMode(context) ? EColors.light:EColors.dark),),
-            //   ),
-            // ),
             const SizedBox(
               height: ESize.spaceBtwItems / 2,
             ),

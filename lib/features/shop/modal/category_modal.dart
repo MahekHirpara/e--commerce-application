@@ -6,12 +6,15 @@ class CategoriesModal {
   String image;
   String parentId;
   bool isFeatured;
+  String? thumbnail;
 
   CategoriesModal({required this.id,
     required this.name,
     required this.image,
     required this.isFeatured,
-    this.parentId = ''});
+    this.parentId = '',
+    this.thumbnail = '',
+  });
 
   ///Empty Helper function
   static CategoriesModal empty() =>
@@ -24,6 +27,7 @@ class CategoriesModal {
       'Name': name,
       'Image': image,
       'IsFeatured': isFeatured,
+      'Thumbnail' : thumbnail,
     };
   }
 
@@ -37,7 +41,9 @@ class CategoriesModal {
         name: data['Name'] ?? '',
         image: data['Image'] ?? '',
         isFeatured: data['IsFeatured'] ?? false,
-        parentId: data['ParentId'] ?? '',);
+        parentId: data['ParentId'] ?? '',
+        thumbnail:  data['Thumbnail'] ?? '',
+      );
     } else {
       return CategoriesModal.empty();
     }

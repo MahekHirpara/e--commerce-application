@@ -1,12 +1,13 @@
 import 'package:e_commerce_app/data/repositories/categories/category_repository.dart';
+import 'package:e_commerce_app/data/repositories/product/product_repo.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/popups/full_screen_loader.dart';
 import '../../../utils/popups/loader.dart';
 import '../modal/category_modal.dart';
+import '../modal/product_modal.dart';
 
-class CategoryController extends GetxController{
-
+class CategoryController extends GetxController {
   static CategoryController get instance => Get.find();
 
   final isLoading = false.obs;
@@ -15,15 +16,14 @@ class CategoryController extends GetxController{
   RxList<CategoriesModal> featuredCategories = <CategoriesModal>[].obs;
 
   @override
-  void onInit(){
+  void onInit() {
     fetchCategories();
     super.onInit();
   }
 
-
   ///Load category data
-  void fetchCategories() async{
-    try{
+  void fetchCategories() async {
+    try {
       //Show loader while Loading
       isLoading.value = true;
 
@@ -34,20 +34,34 @@ class CategoryController extends GetxController{
       allCategories.assignAll(categories);
 
       //Filter featured categories
-      featuredCategories.assignAll(allCategories.where((category) => category.isFeatured && category.parentId.isEmpty).take(8).toList());
-
-    }catch(e){
+      featuredCategories.assignAll(allCategories
+          .where((category) => category.isFeatured && category.parentId.isEmpty)
+          .take(8)
+          .toList());
+    } catch (e) {
       EFullScreenLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
-    }finally{
+    } finally {
       isLoading.value = false;
     }
   }
+
   /// Load selected Category data
+  Future<List<CategoriesModal>> getSubCategories(String categoryId) async{
+    try{
+      final subCategories = await _categoryRepo.getSubCategories(categoryId);
+      return subCategories;
+    }catch (e) {
+      ELoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      return [];
+    }
+  }
 
   /// Get Category or Sub-Category Product
-///
-///
-/// Upload Categories to the Cloud Firebase
-
+  Future<List<ProductModal>> getCategoryProduct(
+      {required String categoryId, int limit = 4}) async {
+    final products = await ProductRepo.instance
+        .getProductForCategory(categoryId: categoryId, limit: limit);
+    return products;
+  }
 }

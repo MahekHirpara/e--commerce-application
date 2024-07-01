@@ -14,47 +14,41 @@ class CategoriesRepo extends GetxController {
   final _db = FirebaseFirestore.instance;
 
   ///Get All categories
-Future<List<CategoriesModal>> getAllCategories() async{
-  try{
-    final snapshot = await _db.collection('Categories').get();
-    final list =snapshot.docs.map((document) => CategoriesModal.fromSnapshot(document)).toList();
-    return list;
-  }on FirebaseAuthException catch (e) {
-    throw EFirebaseAuthException(e.code).message;
-  } on FirebaseException catch (e) {
-    throw EFirebaseException(e.code).message;
-  } on FormatException  {
-    throw const EFormatException();
-  } on PlatformException catch (e) {
-    throw EPlatformException(e.code).message;
-  }catch (e){
-    throw 'Something went wrong,please try again';
-  }
-}
-  ///Get sub categories
-
-  ///Upload Categories to the Cloud Firebase
-  Future<void> uploadDummyData(List<CategoriesModal> categories) async{
-    try{
-final storage = Get.put(EFirebaseStorageService());
-
-for(var category in categories){
-  final file = await storage.getImageDataFromAssets(category.image);
-
-  final url = await storage.uploadImageData('Categories',file,category.name);
-
-  category.image = url;
-  await _db.collection('Categories').doc(category.id).set(category.toJson());
-}
-    }on FirebaseAuthException catch (e) {
+  Future<List<CategoriesModal>> getAllCategories() async {
+    try {
+      final snapshot = await _db.collection('Categories').get();
+      final list = snapshot.docs
+          .map((document) => CategoriesModal.fromSnapshot(document))
+          .toList();
+      return list;
+    } on FirebaseAuthException catch (e) {
       throw EFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
       throw EFirebaseException(e.code).message;
-    } on FormatException  {
+    } on FormatException {
       throw const EFormatException();
     } on PlatformException catch (e) {
       throw EPlatformException(e.code).message;
-    }catch (e){
+    } catch (e) {
+      throw 'Something went wrong,please try again';
+    }
+  }
+
+  ///Get sub categories
+  Future<List<CategoriesModal>> getSubCategories(String categoryId) async {
+    try {
+      final snapshot = await _db.collection('Categories').where('ParentId',isEqualTo: categoryId).get();
+      final result = snapshot.docs.map((e) => CategoriesModal.fromSnapshot(e)).toList();
+      return result;
+    } on FirebaseAuthException catch (e) {
+      throw EFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw EFirebaseException(e.code).message;
+    } on FormatException {
+      throw const EFormatException();
+    } on PlatformException catch (e) {
+      throw EPlatformException(e.code).message;
+    } catch (e) {
       throw 'Something went wrong,please try again';
     }
   }

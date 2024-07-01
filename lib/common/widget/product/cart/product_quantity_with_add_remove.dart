@@ -9,7 +9,13 @@ import '../../icons/ECircleIcon.dart';
 class EProductQuantityWithAddRemove extends StatelessWidget {
   const EProductQuantityWithAddRemove({
     super.key,
+    required this.quality,
+    required this.add,
+    required this.remove,
   });
+
+  final int quality;
+  final VoidCallback? add, remove;
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +30,19 @@ class EProductQuantityWithAddRemove extends StatelessWidget {
           size: ESize.md,
           color: dark ? EColors.white : EColors.black,
           backgroundColor: dark ? EColors.darkerGrey : EColors.light,
+          onPressed: remove,
         ),
         const SizedBox(width: ESize.spaceBtwItems),
-        Text('2', style: Theme.of(context).textTheme.titleSmall),
+        Text(quality.toString(), style: Theme.of(context).textTheme.titleSmall),
         const SizedBox(width: ESize.spaceBtwItems),
-        const ECircleButton(
+         ECircleButton(
           icon: Iconsax.add,
           width: 32,
           height: 32,
           size: ESize.md,
           color: EColors.white,
           backgroundColor: EColors.primary,
+          onPressed: add,
         ),
       ],
     );
