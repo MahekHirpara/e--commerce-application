@@ -15,6 +15,7 @@ import '../../../../utils/helper/helper_function.dart';
 
 import '../../image/rounded_image.dart';
 import '../product_price.dart';
+import 'add_to_cart_button.dart';
 
 class EProductCardHorizontal extends StatelessWidget {
   const EProductCardHorizontal({super.key, required this.product});
@@ -124,25 +125,7 @@ class EProductCardHorizontal extends StatelessWidget {
                           ],
                         ),),
 
-
-
-                      Container(
-                        decoration: BoxDecoration(
-                          color: dark ? EColors.primary : EColors.black,
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(ESize.cardRadiusMd),
-                            bottomRight:
-                            Radius.circular(ESize.productImageRadius),
-                          ),
-                        ),
-                        child: const SizedBox(
-                          width: ESize.iconslg *1.2,
-                          height: ESize.iconslg *1.2,
-                          child: Icon(
-                            Iconsax.add,
-                            color: EColors.white,
-                          ),),
-                      ),
+                      ProductCardAddToCartButton(product: product,),
                     ],
                   ),
                 ],

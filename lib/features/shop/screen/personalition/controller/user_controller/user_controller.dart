@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../../../../common/widget/loaders/processing_loader.dart';
 import '../../../../../../data/repositories/authentication_repo.dart';
 import '../../../../../../data/repositories/user_repo/user_repository.dart';
 import '../../../../../../utils/constant/image_string.dart';
@@ -118,15 +119,15 @@ class UserController extends GetxController {
         if (provider == 'google.com') {
           await auth.signInWithGoogle();
           await auth.deleteAccount();
-          EFullScreenLoader.stopLoading();
+          ProcessingLoader.stopLoading();
           Get.offAll(() => const LoginScreen());
         } else if (provider == 'password') {
-          EFullScreenLoader.stopLoading();
+          ProcessingLoader.stopLoading();
           Get.to(() => const ReAuthUserLoginForm());
         }
       }
     } catch (e) {
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
@@ -134,13 +135,12 @@ class UserController extends GetxController {
   //re Authentication Email and password
   Future<void> reAuthEmailAndPasswordUser() async {
     try {
-      EFullScreenLoader.openLoadingDialog(
-          'Processing', EImages.onBoardingImage1);
+      ProcessingLoader.openLoadingDialog('Processing');
 
       ///Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        EFullScreenLoader.stopLoading();
+        ProcessingLoader.stopLoading();
         return;
       }
 
@@ -153,10 +153,10 @@ class UserController extends GetxController {
       await AuthenticationRepo.instance.reAuthenticateEmailAndPasswordUser(
           verifyEmail.text.trim(), verifyPassword.text.trim());
       await AuthenticationRepo.instance.deleteAccount();
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       Get.offAll(() => const LoginScreen());
     } catch (e) {
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
@@ -186,7 +186,7 @@ class UserController extends GetxController {
             'Profile photo has been updated');
       }
     } catch (e) {
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }finally{
       imageUpload.value=false;

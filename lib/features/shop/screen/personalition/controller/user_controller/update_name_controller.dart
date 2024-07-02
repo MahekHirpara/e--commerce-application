@@ -5,6 +5,7 @@ import 'package:e_commerce_app/utils/popups/full_screen_loader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '../../../../../../common/widget/loaders/processing_loader.dart';
 import '../../../../../../data/repositories/user_repo/user_repository.dart';
 import '../../../../../../utils/constant/image_string.dart';
 import '../../../../../../utils/popups/loader.dart';
@@ -32,12 +33,13 @@ class UpdateNameController extends GetxController{
   
   Future<void> updateUserName() async{
     try{
-      EFullScreenLoader.openLoadingDialog('We are updating your information', EImages.onBoardingImage1);
+      ProcessingLoader.openLoadingDialog('We are updating your information');
+      // EFullScreenLoader.openLoadingDialog('We are updating your information', EImages.onBoardingImage1);
 
       ///Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        EFullScreenLoader.stopLoading();
+        ProcessingLoader.stopLoading();
         return;
       }
 
@@ -54,7 +56,7 @@ class UpdateNameController extends GetxController{
       userController.user.value.firstName =firstName.text.trim();
       userController.user.value.lastName =lastName.text.trim();
 
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
 
       ///SuccessMessage
       ELoaders.successSnackBar(
@@ -62,7 +64,7 @@ class UpdateNameController extends GetxController{
           message: 'Your name has been updated');
       Get.off(() => const ProfileScreen());
     }catch(e){
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }

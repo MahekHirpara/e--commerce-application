@@ -2,6 +2,7 @@ import 'package:e_commerce_app/common/widget/appbar/appbar.dart';
 import 'package:e_commerce_app/common/widget/custom_shap/container/primary_header_container.dart';
 import 'package:e_commerce_app/common/widget/list_tile/menu_list.dart';
 import 'package:e_commerce_app/common/widget/text/section_heading.dart';
+import 'package:e_commerce_app/features/shop/screen/cart/cart.dart';
 import 'package:e_commerce_app/features/shop/screen/personalition/screens/address/address.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -70,20 +71,16 @@ class SettingScreen extends StatelessWidget {
                     title: 'My Cart',
                     subTitle: 'Add,remove or Move to Checkout',
                     onTap: () {
-                      Get.to(()=>const OrderScreen());
+                      Get.to(()=>const CartScreen());
                     },
                   ),
                   ESettingMenuTile(
                     icon: Iconsax.bag_tick,
                     title: 'My Order',
                     subTitle: 'In-Progress and Completed Order',
-                    onTap: () {},
-                  ),
-                  ESettingMenuTile(
-                    icon: Iconsax.bank,
-                    title: 'Bank Account',
-                    subTitle: 'Withdraw balance to registered bank',
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(()=>const OrderScreen());
+                    },
                   ),
                   ESettingMenuTile(
                     icon: Iconsax.discount_shape,
@@ -92,19 +89,7 @@ class SettingScreen extends StatelessWidget {
                     onTap: () {},
                   ),
                   ESettingMenuTile(
-                    icon: Iconsax.notification,
-                    title: 'Notification',
-                    subTitle: 'Set any kind of notification',
-                    onTap: () {},
-                  ),
-                  ESettingMenuTile(
-                    icon: Iconsax.security_card,
-                    title: 'Account Privacy',
-                    subTitle: 'Manage data usage and connected accounts',
-                    onTap: () {},
-                  ),
-                  ESettingMenuTile(
-                    icon: Iconsax.security_card,
+                    icon: Iconsax.logout,
                     title: 'LogOut',
                     subTitle: 'logout',
                     onTap: () {

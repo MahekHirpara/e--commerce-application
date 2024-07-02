@@ -6,6 +6,7 @@ import 'package:e_commerce_app/utils/popups/full_screen_loader.dart';
 import 'package:e_commerce_app/utils/popups/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../common/widget/loaders/processing_loader.dart';
 import '../../../../data/repositories/authentication_repo.dart';
 import '../../../../data/repositories/user_repo/user_repository.dart';
 import '../network_manager.dart';
@@ -27,19 +28,20 @@ class SingUpController extends GetxController {
   Future<void> singUp() async {
     try {
       ///start Loading
-      EFullScreenLoader.openLoadingDialog(
-          'We are processing your information', EImages.onBoardingImage1);
+       ProcessingLoader.openLoadingDialog('We are processing your information');
+      // EFullScreenLoader.openLoadingDialog(
+      //     'We are processing your information', EImages.onBoardingImage1);
 
       ///Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        EFullScreenLoader.stopLoading();
+        ProcessingLoader.stopLoading();
         return;
       }
 
       ///Form validation
       if (!singupFormKey.currentState!.validate()) {
-        EFullScreenLoader.stopLoading();
+        ProcessingLoader.stopLoading();
         return;
       }
 
@@ -71,7 +73,7 @@ class SingUpController extends GetxController {
       final userRepo = Get.put(UserRepo());
       userRepo.saveUserData(newUser);
 
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
 
       ///SuccessMessage
       ELoaders.successSnackBar(
@@ -81,7 +83,7 @@ class SingUpController extends GetxController {
       ///Move to Verify Email Screen
       Get.to(() =>  VerifyEmailScreen(email: email.text.trim(),));
     } catch (e) {
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }

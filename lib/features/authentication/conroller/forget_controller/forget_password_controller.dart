@@ -1,4 +1,5 @@
 
+import 'package:e_commerce_app/common/widget/loaders/processing_loader.dart';
 import 'package:e_commerce_app/features/authentication/screens/passwoed_configuration/reset_password.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -17,25 +18,26 @@ class ForgetPasswordController extends GetxController {
 
   sendPasswordResendEmail() async {
     try {
-      EFullScreenLoader.openLoadingDialog(
-          'We are processing your information', EImages.onBoardingImage1);
+      ProcessingLoader.openLoadingDialog('We are processing your information');
+      // EFullScreenLoader.openLoadingDialog(
+      //     'We are processing your information', EImages.onBoardingImage1);
 
       //connection check
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        EFullScreenLoader.stopLoading();
+        ProcessingLoader.stopLoading();
         return;
       }
 
       ///Form validation
       if (!forgetPasswordFormKey.currentState!.validate()) {
-        EFullScreenLoader.stopLoading();
+        ProcessingLoader.stopLoading();
         return;
       }
 
       await AuthenticationRepo.instance.sendPasswordEmail(email.text.trim());
 
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
 
       Get.to(
         () => ResetPassword(
@@ -43,30 +45,31 @@ class ForgetPasswordController extends GetxController {
         ),
       );
     } catch (e) {
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
 
   resendPasswordResetEmail(String email) async {
     try {
-      EFullScreenLoader.openLoadingDialog(
-          'We are processing your information', EImages.onBoardingImage1);
+      ProcessingLoader.openLoadingDialog('We are processing your information');
+      // EFullScreenLoader.openLoadingDialog(
+      //     'We are processing your information', EImages.onBoardingImage1);
       //connection check
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        EFullScreenLoader.stopLoading();
+        ProcessingLoader.stopLoading();
         return;
       }
 
       await AuthenticationRepo.instance.sendPasswordEmail(email);
 
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(
           title: 'Email sent',
           message: 'Email link sent to reset your Password');
     } catch (e) {
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }

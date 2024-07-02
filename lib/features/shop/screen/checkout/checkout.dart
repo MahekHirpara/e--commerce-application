@@ -1,25 +1,30 @@
+
 import 'package:e_commerce_app/common/widget/appbar/appbar.dart';
 import 'package:e_commerce_app/common/widget/custom_shap/container/circular_container.dart';
 import 'package:e_commerce_app/features/shop/screen/cart/widgets/cart_item.dart';
 import 'package:e_commerce_app/features/shop/screen/checkout/widget/billin_payment_section.dart';
 import 'package:e_commerce_app/features/shop/screen/checkout/widget/billing_address_section.dart';
 import 'package:e_commerce_app/features/shop/screen/checkout/widget/billing_amount_section.dart';
-import 'package:e_commerce_app/utils/constant/image_string.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:e_commerce_app/utils/helper/helper_function.dart';
+import 'package:e_commerce_app/utils/helper/pricing.dart';
+import 'package:e_commerce_app/utils/popups/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../common/widget/product/cart/copuen_widget.dart';
-import '../../../../common/widget_login_sing_up/success.dart';
-import '../../../../navigation_menu.dart';
 import '../../../../utils/constant/color.dart';
+import '../../controller/product/cart_controller.dart';
+import '../../controller/product/order_controller.dart';
 
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cartController = CartController.instance;
+    final subTotal = cartController.totalCartPrice.value;
+    final orderController = Get.put(OrderController());
+    final totalAmount = EPricing.calculateTotalPrice(subTotal, 'US');
     final dark = EHelperFunction.isDarkMode(context);
     return Scaffold(
       appBar: EAppBar(
@@ -70,13 +75,10 @@ class CheckoutScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(ESize.defaultSpace),
-        child: ElevatedButton(onPressed: (){
-          Get.to(() =>  SuccessScreen(
-            image: EImages.successfulPaymentIcon, title: 'Payment Successful', subTitle: 'Your Item will be shipped soon!', onpressed: () {
-              Get.offAll(() =>const NavigationMenu());
-          },
-          ));
-        },child: const Text('Checkout \$25'),),
+        child: ElevatedButton(
+          onPressed:subTotal > 0 ? () => orderController.processOrder(totalAmount) : () => ELoaders.warnigSnackBar(title: 'Empty Cart',message: 'Add items in the cart in Order to Processed'),
+          child:  Text('Checkout \$$totalAmount',),
+      ),
       ),
     );
   }

@@ -16,6 +16,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../common/widget/loaders/full_screen_loader.dart';
+
 class FavouriteScreen extends StatelessWidget {
   const FavouriteScreen({super.key});
 
@@ -45,13 +47,13 @@ class FavouriteScreen extends StatelessWidget {
               ()=> FutureBuilder(
                     future: controller.favoritesProduct(),
                     builder: (context, snapshot) {
-                      final emptyWidget = EAnimationLoaderWidget(
-                        text: 'Whoops! whishlist is empty',
-                        animation: EImages.productsIllustration,
+                      final emptyWidget = FullScreenLoader(
+                        text: 'Whoops! Whishlist is empty',
                         showAction: true,
                         actionText: 'Let\'s add some,',
-                        onActionPresed: () => Get.off(() => NavigationMenu()),
+                        onActionPresed: () => Get.off(() => const NavigationMenu()),
                       );
+
                       const loader = EVerticalProductShimmer();
                       final widget =
                           ECloudHelperFunction.checkMultipleRecordState(

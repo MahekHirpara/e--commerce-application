@@ -18,14 +18,12 @@ class EFullScreenLoader {
           height:  double.infinity,
           child:Column(
             children: [
-              Expanded(child:SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const SizedBox(height: 20,),
-                    EAnimationLoaderWidget(text:text,animation:animation)
-                  ],
-                ),
+              Expanded(child:Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SizedBox(height: 20,),
+                  EAnimationLoaderWidget(text:text,animation:animation)
+                ],
               ), ),
             ],
           )

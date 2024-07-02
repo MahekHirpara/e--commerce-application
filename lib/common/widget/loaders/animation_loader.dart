@@ -20,25 +20,26 @@ class EAnimationLoaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Lottie.asset(animation,width: MediaQuery.of(context).size.width*0.8),
-          const SizedBox(height: ESize.defaultSpace,),
-          Text(text,style: Theme.of(context).textTheme.bodyMedium,),
-          const SizedBox(height: ESize.defaultSpace,),
-          showAction ? SizedBox(
-            width: 250,
-            child: OutlinedButton(
-              onPressed: onActionPresed,
-              style: OutlinedButton.styleFrom(backgroundColor: EColors.dark),
-              child: Text(
-                actionText!,style: Theme.of(context).textTheme.bodySmall,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Lottie.asset(animation,width: MediaQuery.of(context).size.width*0.8),
+            const SizedBox(height: ESize.defaultSpace,),
+            Text(text,style: Theme.of(context).textTheme.bodyMedium,),
+            const SizedBox(height: ESize.defaultSpace,),
+            if(showAction) SizedBox(
+              width: 250,
+              child: OutlinedButton(
+                onPressed: onActionPresed,
+                style: OutlinedButton.styleFrom(backgroundColor: EColors.dark),
+                child: Text(
+                  actionText!,style: Theme.of(context).textTheme.bodySmall,
+                ),
               ),
             ),
-          ):const SizedBox(),
-        ],
+          ],
+        ),
       ),
     );
   }

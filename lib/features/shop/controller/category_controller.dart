@@ -2,6 +2,7 @@ import 'package:e_commerce_app/data/repositories/categories/category_repository.
 import 'package:e_commerce_app/data/repositories/product/product_repo.dart';
 import 'package:get/get.dart';
 
+import '../../../common/widget/loaders/processing_loader.dart';
 import '../../../utils/popups/full_screen_loader.dart';
 import '../../../utils/popups/loader.dart';
 import '../modal/category_modal.dart';
@@ -39,7 +40,7 @@ class CategoryController extends GetxController {
           .take(8)
           .toList());
     } catch (e) {
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     } finally {
       isLoading.value = false;

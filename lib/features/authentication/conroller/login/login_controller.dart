@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../../../common/widget/loaders/processing_loader.dart';
 import '../../../../data/repositories/authentication_repo.dart';
 import '../../../../utils/constant/image_string.dart';
 import '../../../../utils/popups/full_screen_loader.dart';
@@ -25,19 +26,20 @@ class LoginController extends GetxController{
   Future<void> emailAndPasswordSingIn() async{
     try{
       ///start Loading
-      EFullScreenLoader.openLoadingDialog(
-          'We are processing your information', EImages.onBoardingImage1);
+      ProcessingLoader.openLoadingDialog('We are processing your information');
+      // EFullScreenLoader.openLoadingDialog(
+      //     'We are processing your information', EImages.onBoardingImage1);
 
       ///Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        EFullScreenLoader.stopLoading();
+        ProcessingLoader.stopLoading();
         return;
       }
 
       ///Form validation
       if (!loginFormKey.currentState!.validate()) {
-        EFullScreenLoader.stopLoading();
+        ProcessingLoader.stopLoading();
         return;
       }
 
@@ -52,11 +54,11 @@ class LoginController extends GetxController{
       //Login user using Email&Password
        await AuthenticationRepo.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
 
       AuthenticationRepo.instance.screenRedirect();
     }catch(e){
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap login!',message: e.toString());
     }
   }
@@ -65,13 +67,14 @@ class LoginController extends GetxController{
   Future<void> googleSignIn() async{
     try{
       ///start Loading
-      EFullScreenLoader.openLoadingDialog(
-          'We are processing your information', EImages.onBoardingImage1);
+      ProcessingLoader.openLoadingDialog('We are processing your information');
+      // EFullScreenLoader.openLoadingDialog(
+      //     'We are processing your information', EImages.onBoardingImage1);
 
       ///Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        EFullScreenLoader.stopLoading();
+        ProcessingLoader.stopLoading();
         return;
       }
 
@@ -81,12 +84,12 @@ class LoginController extends GetxController{
       //save user record
       await userController.saveUserRecord(userCredentials);
 
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
 
       AuthenticationRepo.instance.screenRedirect();
 
     }catch(e){
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap!',message: e.toString());
     }
   }

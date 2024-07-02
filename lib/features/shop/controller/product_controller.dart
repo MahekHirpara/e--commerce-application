@@ -3,6 +3,7 @@ import 'package:e_commerce_app/features/shop/modal/product_modal.dart';
 import 'package:e_commerce_app/utils/constant/enums.dart';
 import 'package:get/get.dart';
 
+import '../../../common/widget/loaders/processing_loader.dart';
 import '../../../utils/popups/full_screen_loader.dart';
 import '../../../utils/popups/loader.dart';
 
@@ -25,7 +26,6 @@ class ProductController extends GetxController{
 
       isLoading.value = true;
 
-
       //get product
       final products = await _productRepo.getFeaturedProducts();
 
@@ -33,7 +33,7 @@ class ProductController extends GetxController{
       featuredProducts.assignAll(products);
 
     }catch(e){
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap !', message: e.toString());
     }finally{
       isLoading.value = false;

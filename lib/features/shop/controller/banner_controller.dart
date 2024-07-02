@@ -2,6 +2,7 @@ import 'package:e_commerce_app/data/repositories/banner/banner_repo.dart';
 import 'package:e_commerce_app/features/shop/modal/banner_modal.dart';
 import 'package:get/get.dart';
 
+import '../../../common/widget/loaders/processing_loader.dart';
 import '../../../data/repositories/categories/category_repository.dart';
 import '../modal/category_modal.dart';
 import '../../../utils/popups/full_screen_loader.dart';
@@ -44,7 +45,7 @@ class BannerController extends GetxController{
 
 
     }catch(e){
-      EFullScreenLoader.stopLoading();
+      ProcessingLoader.stopLoading();
       ELoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }finally{
       isLoading.value = false;
