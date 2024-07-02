@@ -1,13 +1,12 @@
 
 import 'package:e_commerce_app/features/shop/screen/personalition/controller/user_controller/user_controller.dart';
 import 'package:e_commerce_app/features/shop/screen/personalition/screens/profile/profile_sc.dart';
-import 'package:e_commerce_app/utils/popups/full_screen_loader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../../../../../common/widget/loaders/processing_loader.dart';
 import '../../../../../../data/repositories/user_repo/user_repository.dart';
-import '../../../../../../utils/constant/image_string.dart';
+
 import '../../../../../../utils/popups/loader.dart';
 import '../../../../../authentication/conroller/network_manager.dart';
 

@@ -77,7 +77,7 @@ class EProductAttribute extends StatelessWidget {
                           Row(
 
                             children: [
-                               EProductTitleText(
+                               const EProductTitleText(
                                 title:'Stock',
                                 smallSize: true,
                               ),

@@ -1,15 +1,15 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:e_commerce_app/common/widget/appbar/appbar.dart';
 import 'package:e_commerce_app/common/widget/icons/ECircleIcon.dart';
 import 'package:e_commerce_app/common/widget/layout/grid_layout.dart';
-import 'package:e_commerce_app/common/widget/loaders/animation_loader.dart';
+
 import 'package:e_commerce_app/common/widget/product/product_cart/product_cart_vertical.dart';
 import 'package:e_commerce_app/common/widget/vertical_product_shimmer.dart';
 import 'package:e_commerce_app/features/shop/controller/product/favourite_controller.dart';
-import 'package:e_commerce_app/features/shop/modal/product_modal.dart';
+
 import 'package:e_commerce_app/features/shop/screen/home/home.dart';
 import 'package:e_commerce_app/navigation_menu.dart';
-import 'package:e_commerce_app/utils/constant/image_string.dart';
+
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:e_commerce_app/utils/helper/cloud_helper_function.dart';
 import 'package:flutter/material.dart';

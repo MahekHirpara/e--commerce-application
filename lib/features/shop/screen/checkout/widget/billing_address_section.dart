@@ -12,7 +12,6 @@ class EBilingAddressSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final addressController = AddressController.instance;
-    print(addressController.selectedAddresses.value.id);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

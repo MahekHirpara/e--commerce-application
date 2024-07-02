@@ -8,7 +8,6 @@ import '../../../exaptation/firebase_auth_exception.dart';
 import '../../../exaptation/firebase_exception.dart';
 import '../../../exaptation/formate_exception.dart';
 import '../../../exaptation/plateform_exception.dart';
-import '../../services/firebase_storage_service.dart';
 
 class CategoriesRepo extends GetxController {
   final _db = FirebaseFirestore.instance;

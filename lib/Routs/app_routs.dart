@@ -3,7 +3,6 @@ import 'package:e_commerce_app/features/authentication/screens/login/login.dart'
 import 'package:e_commerce_app/features/authentication/screens/on_boarding_screens/onbording.dart';
 import 'package:e_commerce_app/features/authentication/screens/passwoed_configuration/forget_password.dart';
 import 'package:e_commerce_app/features/authentication/screens/singup/singup.dart';
-import 'package:e_commerce_app/features/authentication/screens/singup/verify_email.dart';
 import 'package:e_commerce_app/features/shop/screen/cart/cart.dart';
 import 'package:e_commerce_app/features/shop/screen/checkout/checkout.dart';
 import 'package:e_commerce_app/features/shop/screen/home/home.dart';

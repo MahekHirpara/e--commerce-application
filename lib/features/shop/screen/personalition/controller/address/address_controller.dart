@@ -10,7 +10,6 @@ import 'package:get/get.dart';
 import '../../../../../../common/widget/loaders/processing_loader.dart';
 import '../../../../../../common/widget/text/section_heading.dart';
 import '../../../../../../data/repositories/address/address_repo.dart';
-import '../../../../../../utils/popups/full_screen_loader.dart';
 import '../../../../../../utils/popups/loader.dart';
 import '../../modal/address_modal.dart';
 

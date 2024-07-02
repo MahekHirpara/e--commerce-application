@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../utils/constant/color.dart';
-import '../../../../../utils/constant/image_string.dart';
 import '../../../../../utils/constant/size.dart';
 import '../../../modal/payment_method_modal.dart';
 

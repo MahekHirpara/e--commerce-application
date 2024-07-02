@@ -2,7 +2,6 @@ import 'package:e_commerce_app/features/shop/modal/cart_item_modal.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constant/color.dart';
-import '../../../../utils/constant/image_string.dart';
 import '../../../../utils/constant/size.dart';
 import '../../../../utils/helper/helper_function.dart';
 import '../../image/rounded_image.dart';

@@ -1,6 +1,5 @@
 import 'package:e_commerce_app/common/widget/shinmer.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
-import 'package:e_commerce_app/utils/helper/helper_function.dart';
 import 'package:flutter/material.dart';
 
 class ECategoryShimmerEffect extends StatelessWidget {

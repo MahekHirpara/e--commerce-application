@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import '../../../../features/shop/modal/product_modal.dart';
 import '../../../../utils/constant/color.dart';
 import '../../../../utils/constant/size.dart';
-import '../../../../utils/helper/helper_function.dart';
+
 
 class ProductCardAddToCartButton extends StatelessWidget {
   const ProductCardAddToCartButton({
@@ -21,7 +21,6 @@ class ProductCardAddToCartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cartController = CartController.instance;
-    final dark = EHelperFunction.isDarkMode(context);
     return InkWell(
       onTap: (){
         //if the product have variation then show product details for variation

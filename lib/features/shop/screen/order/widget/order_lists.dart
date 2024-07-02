@@ -1,7 +1,5 @@
 import 'package:e_commerce_app/common/widget/custom_shap/container/circular_container.dart';
-import 'package:e_commerce_app/common/widget/loaders/animation_loader.dart';
 import 'package:e_commerce_app/features/shop/controller/product/order_controller.dart';
-import 'package:e_commerce_app/utils/constant/image_string.dart';
 import 'package:e_commerce_app/utils/helper/cloud_helper_function.dart';
 import 'package:e_commerce_app/utils/helper/helper_function.dart';
 import 'package:flutter/material.dart';

@@ -48,7 +48,6 @@ class AddressRepo extends GetxController {
     try{
       final userId = AuthenticationRepo.instance.authUser!.uid;
       final currentAddress = await _db.collection('Users').doc(userId).collection('Address').add(address.toJson());
-      print('${currentAddress.id} id');
       return currentAddress.id;
 
     }catch(e){

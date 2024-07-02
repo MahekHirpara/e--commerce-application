@@ -6,8 +6,6 @@ import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-
-import '../../../../../../common/widget/horizontal_product_shimmer.dart';
 import '../../../../../../utils/constant/color.dart';
 import '../../../../../../utils/helper/cloud_helper_function.dart';
 

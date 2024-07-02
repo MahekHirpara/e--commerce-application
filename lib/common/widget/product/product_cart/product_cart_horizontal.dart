@@ -4,7 +4,6 @@ import 'package:e_commerce_app/common/widget/product/product_title_text.dart';
 import 'package:e_commerce_app/common/widget/text/brand_title_with_verify_icon.dart';
 import 'package:e_commerce_app/features/shop/modal/product_modal.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 import '../../../../features/shop/controller/product_controller.dart';
 import '../../../../utils/constant/color.dart';

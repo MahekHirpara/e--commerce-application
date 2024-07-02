@@ -3,7 +3,6 @@ import 'package:e_commerce_app/data/repositories/product/product_repo.dart';
 import 'package:get/get.dart';
 
 import '../../../common/widget/loaders/processing_loader.dart';
-import '../../../utils/popups/full_screen_loader.dart';
 import '../../../utils/popups/loader.dart';
 import '../modal/category_modal.dart';
 import '../modal/product_modal.dart';

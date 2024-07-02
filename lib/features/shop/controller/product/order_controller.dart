@@ -5,7 +5,6 @@ import 'package:e_commerce_app/features/shop/controller/product/checkout_control
 import 'package:e_commerce_app/features/shop/screen/personalition/controller/address/address_controller.dart';
 import 'package:e_commerce_app/utils/constant/enums.dart';
 import 'package:e_commerce_app/utils/constant/image_string.dart';
-import 'package:e_commerce_app/utils/popups/full_screen_loader.dart';
 import 'package:e_commerce_app/utils/popups/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

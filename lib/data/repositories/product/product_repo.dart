@@ -32,7 +32,6 @@ class ProductRepo extends GetxController {
     } on PlatformException catch (e) {
       throw EPlatformException(e.code).message;
     } catch (e) {
-      print('unknone errer ${e.toString()}');
       throw 'Something went wrong,please try again';
     }
   }
@@ -54,7 +53,6 @@ class ProductRepo extends GetxController {
     } on PlatformException catch (e) {
       throw EPlatformException(e.code).message;
     } catch (e) {
-      print('unknone errer ${e.toString()}');
       throw 'Something went wrong,please try again';
     }
   }
@@ -76,7 +74,6 @@ class ProductRepo extends GetxController {
     } on PlatformException catch (e) {
       throw EPlatformException(e.code).message;
     } catch (e) {
-      print('unknone errer ${e.toString()}');
       throw 'Something went wrong,please try again';
     }
   }
@@ -108,7 +105,6 @@ class ProductRepo extends GetxController {
     } on PlatformException catch (e) {
       throw EPlatformException(e.code).message;
     } catch (e) {
-      print('unknone errer ${e.toString()}');
       throw 'Something went wrong,please try again';
     }
   }
@@ -139,7 +135,6 @@ class ProductRepo extends GetxController {
     } on PlatformException catch (e) {
       throw EPlatformException(e.code).message;
     } catch (e) {
-      print('unknone errer ${e.toString()}');
       throw 'Something went wrong,please try again';
     }
   }
@@ -159,7 +154,6 @@ Future<List<ProductModal>> getFavouriteProduct(List<String> productId) async{
   } on PlatformException catch (e) {
     throw EPlatformException(e.code).message;
   } catch (e) {
-    print('unknone errer ${e.toString()}');
     throw 'Something went wrong,please try again';
   }
 }

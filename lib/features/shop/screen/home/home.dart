@@ -1,10 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:e_commerce_app/features/shop/modal/product_modal.dart';
+
 import 'package:e_commerce_app/features/shop/screen/all_product/all_product.dart';
 import 'package:e_commerce_app/features/shop/screen/home/widgets/home_appbar.dart';
 import 'package:e_commerce_app/features/shop/screen/home/widgets/home_categories.dart';
 import 'package:e_commerce_app/features/shop/screen/home/widgets/promp_slider.dart';
-import 'package:e_commerce_app/utils/constant/image_string.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

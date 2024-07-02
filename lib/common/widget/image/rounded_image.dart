@@ -1,6 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:e_commerce_app/utils/constant/color.dart';
-import 'package:e_commerce_app/utils/helper/helper_function.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../../../utils/constant/size.dart';
@@ -33,8 +31,7 @@ class ERoundedImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = EHelperFunction.isDarkMode(context);
-    return GestureDetector(
+     return GestureDetector(
       onTap: onPressed,
       child: Container(
         width: width,

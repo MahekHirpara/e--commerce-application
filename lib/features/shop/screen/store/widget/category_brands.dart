@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../common/widget/box_shimmer.dart';
 import '../../../../../common/widget/list_tile_shimmer.dart';
-import '../../../../../utils/constant/image_string.dart';
-
 class CategoryBrands extends StatelessWidget {
   const  CategoryBrands({super.key, required this.category});
 

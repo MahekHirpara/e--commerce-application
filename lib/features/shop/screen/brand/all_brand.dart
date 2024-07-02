@@ -1,6 +1,5 @@
 import 'package:e_commerce_app/common/widget/layout/grid_layout.dart';
 import 'package:e_commerce_app/common/widget/text/section_heading.dart';
-import 'package:e_commerce_app/features/shop/modal/brand_modal.dart';
 import 'package:e_commerce_app/features/shop/screen/brand/brand_products.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:flutter/material.dart';

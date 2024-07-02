@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 import '../../../../../common/widget/category_shimmer.dart';
 import '../../../../../common/widget/image_text/image_text.dart';
-import '../../../../../utils/constant/image_string.dart';
 import '../../sub-categories/sub_categories.dart';
 
 

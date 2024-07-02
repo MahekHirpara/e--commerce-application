@@ -3,15 +3,14 @@ import 'package:e_commerce_app/common/widget/fav_icon/favourite_icon.dart';
 import 'package:e_commerce_app/features/shop/controller/product/image_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
 import '../../../../../common/widget/appbar/appbar.dart';
 import '../../../../../common/widget/custom_shap/curved_edges/curve_edget_widget.dart';
-import '../../../../../common/widget/icons/ECircleIcon.dart';
+
 import '../../../../../common/widget/image/rounded_image.dart';
 import '../../../../../common/widget/shinmer.dart';
 import '../../../../../utils/constant/color.dart';
-import '../../../../../utils/constant/image_string.dart';
+
 import '../../../../../utils/constant/size.dart';
 import '../../../../../utils/helper/helper_function.dart';
 import '../../../modal/product_modal.dart';

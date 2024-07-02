@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../common/widget/custom_shap/container/circular_container.dart';
 import '../../../../../utils/constant/color.dart';
-import '../../../../../utils/constant/image_string.dart';
 import '../../../../../utils/constant/size.dart';
 import '../../../modal/product_modal.dart';
 

@@ -6,14 +6,11 @@ import 'package:e_commerce_app/features/shop/controller/product_controller.dart'
 import 'package:e_commerce_app/features/shop/modal/product_modal.dart';
 import 'package:e_commerce_app/features/shop/screen/product_details/product_details.dart';
 import 'package:e_commerce_app/utils/constant/enums.dart';
-import 'package:e_commerce_app/utils/constant/image_string.dart';
 import 'package:e_commerce_app/utils/helper/helper_function.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
 import '../../../../utils/constant/color.dart';
 import '../../../../utils/constant/size.dart';
-import '../../icons/ECircleIcon.dart';
 import '../../text/brand_title_with_verify_icon.dart';
 import '../../text/product_title_text.dart';
 import '../product_price.dart';

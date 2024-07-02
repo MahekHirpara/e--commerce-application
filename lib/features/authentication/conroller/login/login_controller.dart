@@ -6,8 +6,6 @@ import 'package:get_storage/get_storage.dart';
 
 import '../../../../common/widget/loaders/processing_loader.dart';
 import '../../../../data/repositories/authentication_repo.dart';
-import '../../../../utils/constant/image_string.dart';
-import '../../../../utils/popups/full_screen_loader.dart';
 import '../../../../utils/popups/loader.dart';
 import '../network_manager.dart';
 

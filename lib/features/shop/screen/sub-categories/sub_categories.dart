@@ -5,7 +5,6 @@ import 'package:e_commerce_app/common/widget/text/section_heading.dart';
 import 'package:e_commerce_app/features/shop/controller/category_controller.dart';
 import 'package:e_commerce_app/features/shop/modal/category_modal.dart';
 import 'package:e_commerce_app/features/shop/screen/all_product/all_product.dart';
-import 'package:e_commerce_app/utils/constant/image_string.dart';
 import 'package:e_commerce_app/utils/constant/size.dart';
 import 'package:e_commerce_app/utils/helper/cloud_helper_function.dart';
 import 'package:flutter/material.dart';

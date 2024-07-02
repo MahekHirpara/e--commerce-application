@@ -11,8 +11,6 @@ import 'package:image_picker/image_picker.dart';
 import '../../../../../../common/widget/loaders/processing_loader.dart';
 import '../../../../../../data/repositories/authentication_repo.dart';
 import '../../../../../../data/repositories/user_repo/user_repository.dart';
-import '../../../../../../utils/constant/image_string.dart';
-import '../../../../../../utils/popups/full_screen_loader.dart';
 import '../../../../../authentication/conroller/network_manager.dart';
 import '../../screens/profile/widget/re_auth_user_login_form.dart';
 

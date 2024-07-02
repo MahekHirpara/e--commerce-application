@@ -2,9 +2,7 @@ import 'package:e_commerce_app/data/repositories/product/product_repo.dart';
 import 'package:e_commerce_app/features/shop/modal/product_modal.dart';
 import 'package:e_commerce_app/utils/constant/enums.dart';
 import 'package:get/get.dart';
-
 import '../../../common/widget/loaders/processing_loader.dart';
-import '../../../utils/popups/full_screen_loader.dart';
 import '../../../utils/popups/loader.dart';
 
 class ProductController extends GetxController{
